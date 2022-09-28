@@ -82,6 +82,7 @@ extension AwardsViewController:UICollectionViewDelegate,UICollectionViewDataSour
 }
 
 extension AwardsViewController:UITableViewDelegate,UITableViewDataSource{
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if selectedTopTitleIndex == 0{
             if viewModel.isNormalStanding{
@@ -93,6 +94,7 @@ extension AwardsViewController:UITableViewDelegate,UITableViewDataSource{
             return 1
         }
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if selectedTopTitleIndex == 0{
             if viewModel.isNormalStanding{
@@ -111,7 +113,8 @@ extension AwardsViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if selectedTopTitleIndex == 0 && viewModel.isNormalStanding == false{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell1") as! GeneralRowTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! GeneralRowTableViewCell
+            
             cell.headerSizes = headerSizes
             if indexPath.row == 0{
                 cell.titleType = .RedHeader
@@ -126,8 +129,10 @@ extension AwardsViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
         }
         else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! StandingsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! StandingsTableViewCell
+            
             //cell.cellIndex = indexPath.row
+           
             cell.headerSizes = headerSizes
             if selectedTopTitleIndex == 0{
                 let standings = viewModel.getTeamRowByIndex(index: indexPath.row)
@@ -148,6 +153,30 @@ extension AwardsViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
         }
        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if viewModel.isNormalStanding == false && selectedTopTitleIndex == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! LeagueHeaderTableViewCell
+            cell.lblTitle.text = viewModel.getGroupName(section: section)
+            return cell
+        }
+        else{
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if viewModel.isNormalStanding == false && selectedTopTitleIndex == 0{
+            return 40
+        }
+        else{
+            return CGFloat.leastNormalMagnitude
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
     
     

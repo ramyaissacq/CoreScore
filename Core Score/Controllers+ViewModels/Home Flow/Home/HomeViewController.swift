@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import Lottie
 
 enum SportsType{
     case soccer
@@ -33,6 +34,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var basketView: UIView!
     @IBOutlet weak var lblBasketBall: UILabel!
     @IBOutlet weak var imgBasketBall: UIImageView!
+    @IBOutlet weak var animationView: AnimationView!
+    
     
     //MARK: - Variables
     var viewModel = HomeVieModel()
@@ -95,13 +98,14 @@ class HomeViewController: BaseViewController {
     
     func initialSettings(){
         
-//        Utility.scheduleLocalNotificationNow(time: 1, title: "Hon Kong Vs Myanmar", subTitle: "", body: "Scores - 2:1, C - 3:1, HT - 1:0")
-//        Utility.scheduleLocalNotificationNow(time: 5, title: "Hon Kong Vs Myanmar", subTitle: "GOAL!!", body: "Scores - 3:1, C - 3:1, HT - 1:0")
-//        setupTimerForpinRefresh()
-//        setupTimerForPinAlert()
+        //        Utility.scheduleLocalNotificationNow(time: 1, title: "Hon Kong Vs Myanmar", subTitle: "", body: "Scores - 2:1, C - 3:1, HT - 1:0")
+        //        Utility.scheduleLocalNotificationNow(time: 5, title: "Hon Kong Vs Myanmar", subTitle: "GOAL!!", body: "Scores - 3:1, C - 3:1, HT - 1:0")
+        //        setupTimerForpinRefresh()
+        //        setupTimerForPinAlert()
         setupHilightsTimer()
         setupNavButtons()
         setupGestures()
+        configureLottieAnimation()
         // FootballLeague.populateFootballLeagues()
         configureTimeDropDown()
         configureLeagueDropDown()
@@ -128,9 +132,14 @@ class HomeViewController: BaseViewController {
         viewModel.getBasketballScores()
     }
     
-    @objc func leftAction(){
-        print("Left")
+    func configureLottieAnimation(){
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 0.5
+        animationView.play()
+        
     }
+    
     
     func handleSportsSelection(){
         if selectedSportsType == .soccer{
@@ -149,9 +158,9 @@ class HomeViewController: BaseViewController {
     
     func deSelectSportViews(){
         if selectedSportsType != .soccer{
-        soccerView.backgroundColor = Colors.fadeRedColor()
-        imgSoccer.setImageColor(color: Colors.accentColor())
-        lblSoccer.textColor = Colors.accentColor()
+            soccerView.backgroundColor = Colors.fadeRedColor()
+            imgSoccer.setImageColor(color: Colors.accentColor())
+            lblSoccer.textColor = Colors.accentColor()
         }
         
         if selectedSportsType != .basketball{
@@ -196,12 +205,12 @@ class HomeViewController: BaseViewController {
         lblTime.text = "Today"
         lblHeader.text = "Today"
         if selectedSportsType == .soccer{
-        var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
-        arr.insert("All Leagues", at: 0)
-        self.leagueDropDown?.dataSource = arr
-        lblLeague.text = arr.first
-        page = 1
-        viewModel.getMatchesList(page: page)
+            var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
+            arr.insert("All Leagues", at: 0)
+            self.leagueDropDown?.dataSource = arr
+            lblLeague.text = arr.first
+            page = 1
+            viewModel.getMatchesList(page: page)
         }
         else{
             viewModel.getBasketballScores()
@@ -227,12 +236,12 @@ class HomeViewController: BaseViewController {
                 viewModel.categories = viewModel.todayCategories
                 collectionViewCategory.reloadData()
                 if selectedSportsType == .soccer{
-                var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
-                arr.insert("All Leagues", at: 0)
-                self.leagueDropDown?.dataSource = arr
-                lblLeague.text = arr.first
-                page = 1
-                viewModel.getMatchesList(page: page)
+                    var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
+                    arr.insert("All Leagues", at: 0)
+                    self.leagueDropDown?.dataSource = arr
+                    lblLeague.text = arr.first
+                    page = 1
+                    viewModel.getMatchesList(page: page)
                 }
                 else{
                     viewModel.getBasketballScores()
@@ -294,7 +303,7 @@ class HomeViewController: BaseViewController {
                 total = AppPreferences.getBasketBallHighlights().count
             }
             if current < (total - 1){
-              current += 1
+                current += 1
                 collectionViewHighlights.scrollToItem(at: IndexPath(row: current, section: 0), at: .centeredHorizontally, animated: true)
                 pageControl.currentPage = current
             }
@@ -310,7 +319,7 @@ class HomeViewController: BaseViewController {
         
     }
     
-   
+    
     
     @objc func refresh(){
         if selectedTimeIndex == 0 && selectedLeagueID == nil{
@@ -321,9 +330,9 @@ class HomeViewController: BaseViewController {
     }
     
     func setupNavButtons(){
-        let leftBtn = getButton(image: UIImage(named: "menu")!)
-        leftBtn.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
+//        let leftBtn = getButton(image: UIImage(named: "menu")!)
+//        leftBtn.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
         
         let rightBtn = getButton(image: UIImage(named: "search")!)
         rightBtn.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
@@ -341,6 +350,7 @@ class HomeViewController: BaseViewController {
         vc.page = page
         vc.viewModel.originaBasketballMatches = viewModel.originaBasketballMatches
         vc.selectedSport = self.selectedSportsType
+        vc.selectedTimeIndex = selectedTimeIndex
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -364,35 +374,35 @@ class HomeViewController: BaseViewController {
         
     }
     
-//    func setupTimerForpinRefresh(){
-//        if !AppPreferences.getPinList().isEmpty{
-//            timerPinsRefresh = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(refreshPins), userInfo: nil, repeats: true)
-//
-//        }
-//    }
-//
-//    @objc func refreshPins(){
-//        let pins = AppPreferences.getPinList()
-//        for m in pins{
-//            viewModel.getMatchDetails(id: m.matchId ?? 0)
-//
-//        }
-//
-//    }
-//
-//    func setupTimerForPinAlert(){
-//        if !AppPreferences.getPinList().isEmpty{
-//            timerPinsAlert = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(showAlert), userInfo: nil, repeats: true)
-//        }
-//    }
-//
-//    @objc func showAlert(){
-//        let pins = AppPreferences.getPinList()
-//        if let obj = pins.filter({!($0.state == 0 || $0.state == -1)}).first{
-//            Utility.scheduleLocalNotificationNow(time: 1, title: "\(obj.homeName ?? "") Vs \(obj.awayName ?? "")", subTitle: "", body: "Scores - \(obj.homeScore ?? 0):\(obj.awayScore ?? 0), C - \(obj.homeCorner ?? ""):\(obj.awayCorner ?? ""), HT - \(obj.homeHalfScore ?? ""):\(obj.awayHalfScore ?? "")", data: ["id" : obj.matchId ?? 0], repeats: false)
-//
-//        }
-//    }
+    //    func setupTimerForpinRefresh(){
+    //        if !AppPreferences.getPinList().isEmpty{
+    //            timerPinsRefresh = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(refreshPins), userInfo: nil, repeats: true)
+    //
+    //        }
+    //    }
+    //
+    //    @objc func refreshPins(){
+    //        let pins = AppPreferences.getPinList()
+    //        for m in pins{
+    //            viewModel.getMatchDetails(id: m.matchId ?? 0)
+    //
+    //        }
+    //
+    //    }
+    //
+    //    func setupTimerForPinAlert(){
+    //        if !AppPreferences.getPinList().isEmpty{
+    //            timerPinsAlert = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(showAlert), userInfo: nil, repeats: true)
+    //        }
+    //    }
+    //
+    //    @objc func showAlert(){
+    //        let pins = AppPreferences.getPinList()
+    //        if let obj = pins.filter({!($0.state == 0 || $0.state == -1)}).first{
+    //            Utility.scheduleLocalNotificationNow(time: 1, title: "\(obj.homeName ?? "") Vs \(obj.awayName ?? "")", subTitle: "", body: "Scores - \(obj.homeScore ?? 0):\(obj.awayScore ?? 0), C - \(obj.homeCorner ?? ""):\(obj.awayCorner ?? ""), HT - \(obj.homeHalfScore ?? ""):\(obj.awayHalfScore ?? "")", data: ["id" : obj.matchId ?? 0], repeats: false)
+    //
+    //        }
+    //    }
     
     
 }

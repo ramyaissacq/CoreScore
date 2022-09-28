@@ -56,11 +56,25 @@ extension HomeViewController:HomeViewModelDelegate{
         tableView.reloadData()
         if selectedSportsType == .soccer{
             if viewModel.matches?.count ?? 0 > 0{
+                animationView.stop()
                 noDataView.isHidden = true
             }
             else{
+                animationView.play()
                 noDataView.isHidden = false
             }
+        }
+        else{
+            if viewModel.basketballMatches?.isEmpty ?? true{
+                animationView.play()
+                noDataView.isHidden = false
+                
+            }
+            else{
+                animationView.stop()
+                noDataView.isHidden = true
+            }
+            
         }
     }
     
@@ -313,10 +327,10 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         }
         
         if selectedSportsType == .soccer{
-            cell.configureCell(obj: viewModel.matches?[indexPath.row])
+            cell.configureCell(obj: viewModel.matches?[indexPath.row],timeIndex: selectedTimeIndex)
         }
         else{
-            cell.configureCell(obj: viewModel.basketballMatches?[indexPath.row])
+            cell.configureCell(obj: viewModel.basketballMatches?[indexPath.row], timeIndex: selectedTimeIndex)
         }
         return cell
         

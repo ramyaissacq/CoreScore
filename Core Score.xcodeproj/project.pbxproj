@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		088DE62F60FAFCC3BAC8E40A /* Pods_Core_ScoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 624707E1CFB810B04F1C397A /* Pods_Core_ScoreTests.framework */; };
 		A4E42E619B0820DBD9FF668C /* Pods_Core_Score_Core_ScoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3427AA8A0B54B39CA12D6FD /* Pods_Core_Score_Core_ScoreUITests.framework */; };
+		AD1BC39B28E326F60040FE25 /* prize.json in Resources */ = {isa = PBXBuildFile; fileRef = AD1BC39A28E326F60040FE25 /* prize.json */; };
 		ADFA529128E2F1DA004E81BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA529028E2F1DA004E81BF /* AppDelegate.swift */; };
 		ADFA529B28E2F1DA004E81BF /* Core_Score.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADFA529928E2F1DA004E81BF /* Core_Score.xcdatamodeld */; };
 		ADFA52A028E2F1DB004E81BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFA529E28E2F1DB004E81BF /* LaunchScreen.storyboard */; };
@@ -224,6 +225,8 @@
 		ADFA54C628E2F30C004E81BF /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA53FB28E2F30C004E81BF /* League.swift */; };
 		ADFA54C928E2F335004E81BF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADFA54C728E2F335004E81BF /* Colors.xcassets */; };
 		ADFA54CA28E2F335004E81BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADFA54C828E2F335004E81BF /* Assets.xcassets */; };
+		ADFA54CC28E2F872004E81BF /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = ADFA54CB28E2F872004E81BF /* loading.json */; };
+		ADFA54CE28E30AA8004E81BF /* football.json in Resources */ = {isa = PBXBuildFile; fileRef = ADFA54CD28E30AA7004E81BF /* football.json */; };
 		D22CD3C92BAC8C600B52D57D /* Pods_Core_Score.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2351B915B44B60B9AD5F6DD4 /* Pods_Core_Score.framework */; };
 /* End PBXBuildFile section */
 
@@ -250,6 +253,7 @@
 		2351B915B44B60B9AD5F6DD4 /* Pods_Core_Score.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_Score.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		624707E1CFB810B04F1C397A /* Pods_Core_ScoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_ScoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3427AA8A0B54B39CA12D6FD /* Pods_Core_Score_Core_ScoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_Score_Core_ScoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD1BC39A28E326F60040FE25 /* prize.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = prize.json; sourceTree = "<group>"; };
 		ADFA528D28E2F1DA004E81BF /* Core Score.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core Score.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADFA529028E2F1DA004E81BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADFA529A28E2F1DA004E81BF /* Core_Score.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Core_Score.xcdatamodel; sourceTree = "<group>"; };
@@ -469,6 +473,8 @@
 		ADFA53FB28E2F30C004E81BF /* League.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		ADFA54C728E2F335004E81BF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		ADFA54C828E2F335004E81BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ADFA54CB28E2F872004E81BF /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		ADFA54CD28E30AA7004E81BF /* football.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = football.json; sourceTree = "<group>"; };
 		D2ECC15DFAF58C68DA39BD26 /* Pods-Core ScoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core ScoreTests.debug.xcconfig"; path = "Target Support Files/Pods-Core ScoreTests/Pods-Core ScoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D986589DAA4D3CECF9B7DCB2 /* Pods-Core Score.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core Score.release.xcconfig"; path = "Target Support Files/Pods-Core Score/Pods-Core Score.release.xcconfig"; sourceTree = "<group>"; };
 		DA828ACFC8952DFF3388A990 /* Pods-Core Score.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core Score.debug.xcconfig"; path = "Target Support Files/Pods-Core Score/Pods-Core Score.debug.xcconfig"; sourceTree = "<group>"; };
@@ -539,6 +545,9 @@
 				ADFA529E28E2F1DB004E81BF /* LaunchScreen.storyboard */,
 				ADFA54C828E2F335004E81BF /* Assets.xcassets */,
 				ADFA54C728E2F335004E81BF /* Colors.xcassets */,
+				ADFA54CD28E30AA7004E81BF /* football.json */,
+				AD1BC39A28E326F60040FE25 /* prize.json */,
+				ADFA54CB28E2F872004E81BF /* loading.json */,
 				ADFA52A128E2F1DB004E81BF /* Info.plist */,
 				ADFA529928E2F1DA004E81BF /* Core_Score.xcdatamodeld */,
 			);
@@ -1673,6 +1682,7 @@
 			files = (
 				ADFA52CC28E2F24F004E81BF /* Poppins-Bold.otf in Resources */,
 				ADFA543D28E2F30C004E81BF /* SelectionCollectionViewCell.xib in Resources */,
+				ADFA54CC28E2F872004E81BF /* loading.json in Resources */,
 				ADFA543928E2F30C004E81BF /* NewsGamesCollectionViewCell.xib in Resources */,
 				ADFA544628E2F30C004E81BF /* ScoresView.xib in Resources */,
 				ADFA52CA28E2F24F004E81BF /* Poppins-Medium.otf in Resources */,
@@ -1682,6 +1692,7 @@
 				ADFA540428E2F30C004E81BF /* Home.storyboard in Resources */,
 				ADFA541628E2F30C004E81BF /* AnalysisTableViewCell.xib in Resources */,
 				ADFA541E28E2F30C004E81BF /* LeagueHeaderTableViewCell.xib in Resources */,
+				AD1BC39B28E326F60040FE25 /* prize.json in Resources */,
 				ADFA542528E2F30C004E81BF /* EventTechnicHeaderTableViewCell.xib in Resources */,
 				ADFA540C28E2F30C004E81BF /* NewsTableViewCell.xib in Resources */,
 				ADFA542E28E2F30C004E81BF /* RankCollectionViewCell.xib in Resources */,
@@ -1691,6 +1702,7 @@
 				ADFA540628E2F30C004E81BF /* Live.storyboard in Resources */,
 				ADFA540B28E2F30C004E81BF /* VideoTableViewCell.xib in Resources */,
 				ADFA544128E2F30C004E81BF /* HighlightsCollectionViewCell.xib in Resources */,
+				ADFA54CE28E30AA8004E81BF /* football.json in Resources */,
 				ADFA540E28E2F30C004E81BF /* HeighlightsTableViewCell.xib in Resources */,
 				ADFA540728E2F30C004E81BF /* News.storyboard in Resources */,
 				ADFA52CB28E2F24F004E81BF /* Poppins-Italic.otf in Resources */,
@@ -2209,8 +2221,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2220,7 +2234,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2238,8 +2252,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2249,7 +2265,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

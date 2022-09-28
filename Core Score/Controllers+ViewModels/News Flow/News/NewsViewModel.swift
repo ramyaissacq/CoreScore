@@ -16,10 +16,13 @@ class NewsViewModel{
     var delegate:NewsViewModelDelegates?
     var newsList:[NewsList]?
     var videoList:[VideoList]?
+    var newsPageData:Meta?
+    var videoPageData:Meta?
     
     func getNews(page:Int){
-        Utility.showProgress()
+        //Utility.showProgress()
         NewsAPI().getNews(page: page) { response in
+            self.newsPageData = response.meta
             if page == 1{
             self.newsList = response.list
             }
@@ -38,8 +41,9 @@ class NewsViewModel{
     }
     
     func getVideos(page:Int){
-        Utility.showProgress()
+       // Utility.showProgress()
         NewsAPI().getVideos(page: page) { response in
+            self.videoPageData = response.meta
             if page == 1{
                 self.videoList = response.list
             }

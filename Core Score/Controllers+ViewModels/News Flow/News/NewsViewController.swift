@@ -15,9 +15,6 @@ class NewsViewController: BaseViewController {
     @IBOutlet weak var collectionViewNews: UICollectionView!
     
     @IBOutlet weak var tableViewNews: UITableView!
-    
-    @IBOutlet weak var tableViewNewsHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var collectionViewNewsHeight: NSLayoutConstraint!
     
     @IBOutlet weak var headerView1: UIView!
@@ -28,7 +25,6 @@ class NewsViewController: BaseViewController {
     
     @IBOutlet weak var emptyView: UIView!
     //MARK: - Variables
-    var tableViewNewsObserver: NSKeyValueObservation?
     var collectionViewNewsObserver: NSKeyValueObservation?
     var headers = ["News","Video"]
     var selectedHeaderIndex = 0
@@ -51,18 +47,13 @@ class NewsViewController: BaseViewController {
     }
     
     func intialSettings(){
-        setupNavBar()
+       // setupNavBar()
         collectionViewHeader.registerCell(identifier: "SelectionCollectionViewCell")
         collectionViewNews.registerCell(identifier: "VideoHeighlightsCollectionViewCell")
         collectionViewNews.registerCell(identifier: "NewsGamesCollectionViewCell")
         
         tableViewNews.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableViewNews.register(UINib(nibName: "HeighlightsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell1")
-        
-        tableViewNewsObserver = tableViewNews.observe(\.contentSize, options: .new) { (_, change) in
-            guard let height = change.newValue?.height else { return }
-            self.tableViewNewsHeight.constant = height
-        }
         
         collectionViewNewsObserver = collectionViewNews.observe(\.contentSize, options: .new) { (_, change) in
             guard let height = change.newValue?.height else { return }

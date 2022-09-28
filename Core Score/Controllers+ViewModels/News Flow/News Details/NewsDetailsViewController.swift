@@ -34,9 +34,9 @@ class NewsDetailsViewController: BaseViewController {
     
     func initialSettings(){
         setBackButton()
-        let shareBtn = getButton(image: UIImage(named: "share")!)
-        shareBtn.addTarget(self, action: #selector(actionShare), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareBtn)
+//        let shareBtn = getButton(image: UIImage(named: "share")!)
+//        shareBtn.addTarget(self, action: #selector(actionShare), for: .touchUpInside)
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareBtn)
         collectionViewTypes.registerCell(identifier: "TypesCollectionViewCell")
         collectionViewTypesObserver = collectionViewTypes.observe(\.contentSize, options: .new) { (_, change) in
             guard let height = change.newValue?.height else { return }
@@ -55,8 +55,9 @@ class NewsDetailsViewController: BaseViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Utility.dateFormat.ddMMyyyyWithTimeZone.rawValue
         lblDate.text = Utility.formatDate(date: dateFormatter.date(from: viewModel.newsDetails?.createTime ?? ""), with: .ddMMMyyyy)
+        lblTitle.text = viewModel.newsDetails?.title?.htmlToString
         imgNews.setImage(with: viewModel.newsDetails?.path, placeholder: Utility.getPlaceHolder())
-        lblDescription.text = viewModel.newsDetails?.description
+        lblDescription.text = viewModel.newsDetails?.description?.htmlToString
         for m in viewModel.newsDetails?.keywords?.components(separatedBy: ",") ?? []{
             let w = m.width(forHeight: 19, font: UIFont(name: "Poppins-Regular", size: 13)!) + 20
             //m.size(withAttributes:[.font: UIFont(name: "Poppins-Regular", size: 13)!])

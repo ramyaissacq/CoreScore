@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import Lottie
 
 class AwardsViewController: BaseViewController {
     //MARK: - IBOutlets
@@ -20,9 +21,9 @@ class AwardsViewController: BaseViewController {
     @IBOutlet weak var lblSelectedLeague: UILabel!
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var leagueView: UIView!
-    
+    @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var animationView: AnimationView!
     //MARK: - Variables
-    var tableViewStandingsObserver: NSKeyValueObservation?
     var topTitles = ["Team Standings","Player Standings"]
     var normalTeamHeadings = ["Ranking","Team Name","MP","W","D","L","GF","GA","PTs","More"]
     var headings2 = ["Rank","Team Name","Player Name","Goals","Home","Away","More"]
@@ -39,6 +40,8 @@ class AwardsViewController: BaseViewController {
     static var selectedTeamMoreIndices = [Int]()
     var selectedLeagueID:Int?
     var viewModel = AwardsViewModel()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +62,7 @@ class AwardsViewController: BaseViewController {
     }
     
     func initialSettings(){
+        configureLottieAnimation()
         FootballLeague.populateFootballLeagues()
         configureSportsDropDown()
         configureLeagueDropDown()
@@ -70,10 +74,8 @@ class AwardsViewController: BaseViewController {
         collectionViewHeading.registerCell(identifier: "TitleCollectionViewCell")
         tableViewStandings.register(UINib(nibName: "StandingsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableViewStandings.register(UINib(nibName: "GeneralRowTableViewCell", bundle: nil), forCellReuseIdentifier: "cell1")
-        tableViewStandingsObserver = tableViewStandings.observe(\.contentSize, options: .new) { (_, change) in
-            guard let height = change.newValue?.height else { return }
-            self.tableViewStandingsHeight.constant = height
-        }
+        tableViewStandings.register(UINib(nibName: "LeagueHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "headerCell")
+
         collectionViewTop.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .left)
         
         //Calculating cell widths for normalTeamHeadings
@@ -109,6 +111,14 @@ class AwardsViewController: BaseViewController {
         
     }
     
+    func configureLottieAnimation(){
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 0.5
+        animationView.play()
+        
+    }
+    
     func setupViews(){
         if selectedTopTitleIndex == 0{
             if viewModel.isNormalStanding{
@@ -132,18 +142,21 @@ class AwardsViewController: BaseViewController {
             collectionViewHeading.isHidden = false
             
         }
-        collectionViewHeading.reloadData()
-        tableViewStandings.reloadData()
-        emptyChecks()
+       
+            self.collectionViewHeading.reloadData()
+            self.tableViewStandings.reloadData()
+            self.emptyChecks()
         
     }
     
     func emptyChecks(){
         if selectedTopTitleIndex == 0{
-            if (viewModel.isNormalStanding && viewModel.normalStandings?.totalStandings?.isEmpty ?? false) || (!viewModel.isNormalStanding &&  viewModel.leaguStanding?.list?.first?.score?.first?.groupScore?.isEmpty ?? true){
+            if (viewModel.isNormalStanding && viewModel.normalStandings?.totalStandings?.isEmpty ?? true) || (!viewModel.isNormalStanding &&  viewModel.leaguStanding?.list?.first?.score?.first?.groupScore?.isEmpty ?? true){
                 collectionViewHeading.isHidden = true
                 tableViewStandings.isHidden = true
                 leagueView.isHidden = true
+                animationView.play()
+                emptyLabel.text = "Sorry!...No standings found"
                 emptyView.isHidden = false
                 
             }
@@ -156,6 +169,7 @@ class AwardsViewController: BaseViewController {
                 }
                 tableViewStandings.isHidden = false
                 leagueView.isHidden = false
+                animationView.stop()
                 emptyView.isHidden = true
                 
             }
@@ -165,12 +179,15 @@ class AwardsViewController: BaseViewController {
                 collectionViewHeading.isHidden = false
                 tableViewStandings.isHidden = false
                 leagueView.isHidden = false
+                animationView.stop()
                 emptyView.isHidden = true
             }
             else{
                 collectionViewHeading.isHidden = true
                 tableViewStandings.isHidden = true
                 leagueView.isHidden = true
+                animationView.play()
+                emptyLabel.text = "Sorry!...No standings found"
                 emptyView.isHidden = false
                 
             }
@@ -196,6 +213,16 @@ class AwardsViewController: BaseViewController {
           print("Selected item: \(item) at index: \(index)")
             lblLeague.text = item
             selectedLeagueID = FootballLeague.leagues?[index].id
+            if selectedTopTitleIndex == 1{
+            self.viewModel.playerStandings?.removeAll()
+            }
+            else{
+                self.viewModel.normalStandings = nil
+                self.viewModel.leaguStanding = nil
+            }
+            self.collectionViewHeading.reloadData()
+            self.tableViewStandings.reloadData()
+            self.emptyChecks()
             viewModel.getTeamStandings(leagueID: selectedLeagueID!, subLeagueID: 0)
             viewModel.getPlayerStandings(leagueID: selectedLeagueID!)
         }

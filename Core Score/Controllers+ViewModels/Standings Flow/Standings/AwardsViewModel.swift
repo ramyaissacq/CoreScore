@@ -23,50 +23,63 @@ class AwardsViewModel{
     var isNormalStanding = true
     
     func getTeamStandings2(leagueID:Int,subLeagueID:Int){
-        Utility.showProgress()
+       // Utility.showProgress()
         AwardsAPI().getTeamStandingsList(leagueID: leagueID, subLeagueID: subLeagueID) { response in
             //self.teamStandings = response
             //self.delegate?.didFinishTeamStandingsFetch()
         } failed: { msg in
             Utility.showErrorSnackView(message: msg)
         }
-
+        
     }
     func getTeamStandings(leagueID:Int,subLeagueID:Int){
-       // Utility.showProgress()
+        // Utility.showProgress()
         HomeAPI().getLeagueDetails(id: leagueID, subID: subLeagueID, grpID: 0) { json in
             let leagueJson = json?["leagueStanding"]
-            self.analyseResponseJson(json: leagueJson)
+            self.analyseResponseJson(json: leagueJson, leagueID: leagueID)
             self.leaguDetails = LeagueResponse(json!)
             self.delegate?.didFinishTeamStandingsFetch()
             
         } failed: { _ in
             
         }
-
+        
     }
     
     func getPlayerStandings(leagueID:Int){
-        Utility.showProgress()
+       // Utility.showProgress()
         AwardsAPI().getPlayerStandingsList(leagueID: leagueID, subLeagueID: 0) { response in
             self.playerStandings = response.list
             self.delegate?.didFinishPlayerStandingsFetch()
         } failed: { msg in
             Utility.showErrorSnackView(message: msg)
         }
-
+        
     }
     
-    func analyseResponseJson(json:JSON?){
-        if json?.arrayValue.first?["totalStandings"].isEmpty ?? true{
+  
+    
+    func analyseResponseJson(json:JSON?,leagueID:Int){
+        if !(json?.arrayValue.first?["totalStandings"].isEmpty ?? true){
+            normalStandings =  json?.arrayValue.map { TeamStandingsResponse($0) }.first
+            isNormalStanding = true
+            return
+            
+        }
+        
+        if json?.arrayValue.first?["list"].arrayValue.first?["subId"].intValue != 0{
+            let subID = json?.arrayValue.first?["list"].arrayValue.first?["subId"].intValue ?? 0
+            getTeamStandings(leagueID: leagueID, subLeagueID: subID)
+            return
+        }
+        else{
             print("Empty json")
             leaguStanding = json?.arrayValue.map { LeagueStanding($0) }.first
             isNormalStanding = false
+            
         }
-        else{
-        normalStandings =  json?.arrayValue.map { TeamStandingsResponse($0) }.first
-            isNormalStanding = true
-        }
+        
+        
     }
     
     //Methods for handling rare standing object display
@@ -103,6 +116,7 @@ class AwardsViewModel{
             let teamObj = normalStandings?.teamInfo?.filter{$0.teamId == teamID}.first
             team = (teamObj?.nameEn ?? "") + "," + (teamObj?.flag ?? "")
         }
+        print(team)
         standings.append(team)
         standings.append("\(obj?.totalCount ?? 0)")
         standings.append("\(obj?.winCount ?? 0)")
@@ -111,16 +125,16 @@ class AwardsViewModel{
         standings.append("\(obj?.getScore ?? 0)")
         standings.append("\(obj?.loseScore ?? 0)")
         standings.append("\(obj?.integral ?? 0)")
-
+        
         return standings
     }
-
+    
     func getResultsPercentageStringByIndex(index:Int)->String{
         let obj = normalStandings?.totalStandings?[index]
         let percentageString = "W%=\(obj?.winRate ?? "")% / L%=\(obj?.loseRate ?? "")% / AVA=\(obj?.loseAverage ?? 0) / D%=\(obj?.drawRate ?? "")% / AVF=\(obj?.winAverage ?? 0)"
         return percentageString
     }
-
+    
     func getResultsArrayByIndex(index:Int)->[String]{
         var results = [String]()
         let obj = normalStandings?.totalStandings?[index]

@@ -15,6 +15,7 @@ pod 'Alamofire' #Webservice
  pod 'ReachabilitySwift'  #To ckeck if network available
  pod 'SwiftEntryKit' #Dialogs
  pod 'DropDown'
+ pod 'lottie-ios'
 
   target 'Core ScoreTests' do
     inherit! :search_paths

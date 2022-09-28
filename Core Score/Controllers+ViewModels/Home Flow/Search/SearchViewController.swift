@@ -17,6 +17,7 @@ class SearchViewController: BaseViewController {
     var viewModel = HomeVieModel()
     var page = 1
     var selectedSport = SportsType.soccer
+    var selectedTimeIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,10 +128,10 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             self.goToCategory(index: indexPath.row, category: .league)
         }
         if selectedSport == .soccer{
-        cell.configureCell(obj: self.viewModel.matches?[indexPath.row])
+        cell.configureCell(obj: self.viewModel.matches?[indexPath.row],timeIndex: selectedTimeIndex)
         }
         else{
-            cell.configureCell(obj: self.viewModel.basketballMatches?[indexPath.row])
+            cell.configureCell(obj: self.viewModel.basketballMatches?[indexPath.row], timeIndex: selectedTimeIndex)
         }
         return cell
         

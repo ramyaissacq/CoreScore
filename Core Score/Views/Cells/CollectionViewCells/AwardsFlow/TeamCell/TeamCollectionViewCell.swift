@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TeamCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblName:UILabel!

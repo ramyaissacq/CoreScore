@@ -99,8 +99,9 @@ class ScoresView: UIView {
         lblHomeName.text = obj?.homeName
         lblAwayName.text = obj?.awayName
         lblScore.text = "\(obj?.homeScore ?? 0 ) : \(obj?.awayScore ?? 0)"
-        let timeDifference = Date() - Utility.getSystemTimeZoneTime(dateString: obj?.startTime ?? "")
-        let mins = ScoresTableViewCell.getMinutesFromTimeInterval(interval: timeDifference)
+        //let timeDifference = Date() - Utility.getSystemTimeZoneTime(dateString: obj?.startTime ?? "")
+        let mins = ScoresTableViewCell.timeInMins(startDate: obj?.startTime ?? "")
+        //ScoresTableViewCell.getMinutesFromTimeInterval(interval: timeDifference)
         lblDate.text = "\(ScoresTableViewCell.getStatus(state: obj?.state ?? 0)) \(mins)'"
         if obj?.state == 0{
             lblScore.text = "SOON"
@@ -182,8 +183,8 @@ class ScoresView: UIView {
         odds2Stack.isHidden = false
         indexViewYellow.isHidden = false
         lblName.text = obj?.leagueNameEn
-        lblHomeName.text = obj?.homeTeamNameEn
-        lblAwayName.text = obj?.awayTeamNameEn
+        lblHomeName.text = obj?.homeTeamEn
+        lblAwayName.text = obj?.awayTeamEn
         if obj?.matchState == 0{
             lblScore.text = "SOON"
         }
@@ -195,21 +196,46 @@ class ScoresView: UIView {
         
         let matchDate = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
         lblTime.text = Utility.formatDate(date: matchDate, with: .hhmm2)
-       
+        
             lblHandicap1.text = String(obj?.odds?.moneyLineAverage?.liveHomeWinRate ?? 0)
+        
         if obj?.odds?.spread?.count ?? 0 > 9{
             lblHandicap2.text = String(obj?.odds?.spread?[9] ?? 0)
         }
+        else{
+            lblHandicap2.text = ""
+        }
         if obj?.odds?.total?.count ?? 0 > 9{
         lblHandicap3.text = String(obj?.odds?.total?[9] ?? 0)
+        }
+        else{
+            lblHandicap3.text = ""
         }
         
         lblOverUnder1.text = String(obj?.odds?.moneyLineAverage?.liveAwayWinRate ?? 0)
         if obj?.odds?.spread?.count ?? 0 > 10{
         lblOverUnder2.text = String(obj?.odds?.spread?[10] ?? 0)
         }
+        else{
+            lblOverUnder2.text = ""
+        }
         if obj?.odds?.total?.count ?? 0 > 10{
         lblOverUnder3.text = String(obj?.odds?.total?[10] ?? 0)
+        }
+        else{
+            lblOverUnder3.text = ""
+        }
+        
+        if (obj?.odds?.spread?.isEmpty ?? true) && (obj?.odds?.total?.isEmpty ?? true){
+            odds1Stack.isHidden = true
+            odds2Stack.isHidden = true
+            indexViewYellow.isHidden = true
+        }
+        else{
+            odds1Stack.isHidden = false
+            odds2Stack.isHidden = false
+            indexViewYellow.isHidden = false
+
         }
        
         if obj?.havBriefing ?? false{

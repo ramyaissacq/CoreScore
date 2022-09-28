@@ -49,6 +49,7 @@ class HomeVieModel{
     
     func getMatchesList(page:Int){
         // Utility.showProgress()
+        print("PAGE::\(page)")
         HomeAPI().getScores(page: page) { response in
             self.scoreResponse = response
             if page > 1 {
@@ -140,6 +141,7 @@ class HomeVieModel{
         let dt = dateFormatter.date(from: date)
         let date = Utility.formatDate(date: dt, with: .yyyyMMdd)
         HomeAPI().getBasketballScoresPastFuture(date: date) { response in
+            self.originaBasketballMatches = response.matchList
             self.basketballMatches = response.matchList
             self.delegate?.didFinishFetchBasketballRecentMatches()
         } failed: { msg in
