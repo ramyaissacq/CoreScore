@@ -149,8 +149,18 @@ class ScoresTableViewCell: UITableViewCell {
         }
         let matchDate = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
         lblTime.text = Utility.formatDate(date: matchDate, with: .hhmm2)
+        if obj?.homeHalfScore == "0" && obj?.awayHalfScore == "0"{
+            lblHalfScore.text = ""
+        }
+        else{
         lblHalfScore.text = "\(obj?.homeHalfScore ?? "") : \(obj?.awayHalfScore ?? "")"
+        }
+        if obj?.homeCorner == "0" && obj?.awayCorner == "0"{
+            lblCorner.text = ""
+        }
+        else{
         lblCorner.text = "\(obj?.homeCorner ?? "") : \(obj?.awayCorner ?? "")"
+        }
         if obj?.homeHalfScore == "" && obj?.awayHalfScore == "" && obj?.homeCorner == "" && obj?.awayCorner == ""{
             cornerView.isHidden = true
             cornerStack.isHidden = true

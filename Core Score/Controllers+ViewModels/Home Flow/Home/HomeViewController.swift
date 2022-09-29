@@ -330,9 +330,9 @@ class HomeViewController: BaseViewController {
     }
     
     func setupNavButtons(){
-//        let leftBtn = getButton(image: UIImage(named: "menu")!)
-//        leftBtn.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
+        let leftBtn = getButton(image: UIImage(named: "menu")!)
+        leftBtn.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
         
         let rightBtn = getButton(image: UIImage(named: "search")!)
         rightBtn.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
@@ -340,7 +340,7 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func menuTapped(){
-        
+        openVC(storyBoard: "SideMenu", identifier: "SideMenuViewController")
     }
     
     @objc func searchTapped(){

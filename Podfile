@@ -16,6 +16,7 @@ pod 'Alamofire' #Webservice
  pod 'SwiftEntryKit' #Dialogs
  pod 'DropDown'
  pod 'lottie-ios'
+ pod 'SideMenu'
 
   target 'Core ScoreTests' do
     inherit! :search_paths

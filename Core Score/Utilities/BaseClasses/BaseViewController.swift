@@ -1,6 +1,7 @@
 
 
 import UIKit
+import SideMenu
 
 class BaseViewController: UIViewController {
 
@@ -66,5 +67,16 @@ class BaseViewController: UIViewController {
     @objc func actionBack(){
         self.navigationController?.popViewController(animated: true)
     }
+    
+   static func openSideMenu(vc:UIViewController){
+        let sideMenuVc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "SideMenuViewController")
+        let menu = SideMenuNavigationController(rootViewController: sideMenuVc)
+       menu.leftSide = true
+        //SideMenuManager.default.rightMenuNavigationController = menu
+        menu.statusBarEndAlpha = 0
+        vc.present(menu, animated: true)
+    }
+        
+
     
 }

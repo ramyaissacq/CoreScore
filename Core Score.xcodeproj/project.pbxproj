@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		088DE62F60FAFCC3BAC8E40A /* Pods_Core_ScoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 624707E1CFB810B04F1C397A /* Pods_Core_ScoreTests.framework */; };
 		A4E42E619B0820DBD9FF668C /* Pods_Core_Score_Core_ScoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3427AA8A0B54B39CA12D6FD /* Pods_Core_Score_Core_ScoreUITests.framework */; };
+		AD162B9528E5B1FF003753EA /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD162B9328E5B1FF003753EA /* SideMenuTableViewCell.swift */; };
+		AD162B9628E5B1FF003753EA /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD162B9428E5B1FF003753EA /* SideMenuTableViewCell.xib */; };
+		AD162B9928E5B44C003753EA /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD162B9828E5B44C003753EA /* SideMenuViewController.swift */; };
+		AD162B9B28E5B7DD003753EA /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD162B9A28E5B7DD003753EA /* SideMenu.storyboard */; };
+		AD162BA028E5D188003753EA /* LanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD162B9E28E5D188003753EA /* LanguageTableViewCell.swift */; };
+		AD162BA128E5D188003753EA /* LanguageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD162B9F28E5D188003753EA /* LanguageTableViewCell.xib */; };
+		AD162BA528E5D43A003753EA /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD162BA428E5D43A003753EA /* LanguageViewController.swift */; };
+		AD162BA828E5D79A003753EA /* PagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD162BA728E5D79A003753EA /* PagesViewController.swift */; };
 		AD1BC39B28E326F60040FE25 /* prize.json in Resources */ = {isa = PBXBuildFile; fileRef = AD1BC39A28E326F60040FE25 /* prize.json */; };
 		ADFA529128E2F1DA004E81BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA529028E2F1DA004E81BF /* AppDelegate.swift */; };
 		ADFA529B28E2F1DA004E81BF /* Core_Score.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADFA529928E2F1DA004E81BF /* Core_Score.xcdatamodeld */; };
@@ -253,6 +261,14 @@
 		2351B915B44B60B9AD5F6DD4 /* Pods_Core_Score.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_Score.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		624707E1CFB810B04F1C397A /* Pods_Core_ScoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_ScoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3427AA8A0B54B39CA12D6FD /* Pods_Core_Score_Core_ScoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_Score_Core_ScoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD162B9328E5B1FF003753EA /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		AD162B9428E5B1FF003753EA /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
+		AD162B9828E5B44C003753EA /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		AD162B9A28E5B7DD003753EA /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		AD162B9E28E5D188003753EA /* LanguageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewCell.swift; sourceTree = "<group>"; };
+		AD162B9F28E5D188003753EA /* LanguageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageTableViewCell.xib; sourceTree = "<group>"; };
+		AD162BA428E5D43A003753EA /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		AD162BA728E5D79A003753EA /* PagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesViewController.swift; sourceTree = "<group>"; };
 		AD1BC39A28E326F60040FE25 /* prize.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = prize.json; sourceTree = "<group>"; };
 		ADFA528D28E2F1DA004E81BF /* Core Score.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core Score.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADFA529028E2F1DA004E81BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -509,6 +525,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD162B9228E5B1D0003753EA /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				AD162B9328E5B1FF003753EA /* SideMenuTableViewCell.swift */,
+				AD162B9428E5B1FF003753EA /* SideMenuTableViewCell.xib */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		AD162B9728E5B430003753EA /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				AD162B9828E5B44C003753EA /* SideMenuViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		AD162B9C28E5D157003753EA /* SideMenuFlow */ = {
+			isa = PBXGroup;
+			children = (
+				AD162B9D28E5D166003753EA /* Language */,
+				AD162B9228E5B1D0003753EA /* SideMenu */,
+			);
+			path = SideMenuFlow;
+			sourceTree = "<group>";
+		};
+		AD162B9D28E5D166003753EA /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				AD162B9E28E5D188003753EA /* LanguageTableViewCell.swift */,
+				AD162B9F28E5D188003753EA /* LanguageTableViewCell.xib */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		AD162BA228E5D40C003753EA /* SideMenuFlow */ = {
+			isa = PBXGroup;
+			children = (
+				AD162BA628E5D789003753EA /* Pages */,
+				AD162BA328E5D41A003753EA /* Language */,
+				AD162B9728E5B430003753EA /* SideMenu */,
+			);
+			path = SideMenuFlow;
+			sourceTree = "<group>";
+		};
+		AD162BA328E5D41A003753EA /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				AD162BA428E5D43A003753EA /* LanguageViewController.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		AD162BA628E5D789003753EA /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				AD162BA728E5D79A003753EA /* PagesViewController.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
 		ADFA528428E2F1DA004E81BF = {
 			isa = PBXGroup;
 			children = (
@@ -615,6 +692,7 @@
 				ADFA52DC28E2F30B004E81BF /* Main.storyboard */,
 				ADFA52DE28E2F30B004E81BF /* Live.storyboard */,
 				ADFA52DF28E2F30B004E81BF /* News.storyboard */,
+				AD162B9A28E5B7DD003753EA /* SideMenu.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -631,6 +709,7 @@
 		ADFA52E128E2F30B004E81BF /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				AD162B9C28E5D157003753EA /* SideMenuFlow */,
 				ADFA52E228E2F30B004E81BF /* AwardsFlow */,
 				ADFA52E528E2F30B004E81BF /* NewsFlow */,
 				ADFA52EF28E2F30B004E81BF /* HomeFlow */,
@@ -1027,6 +1106,7 @@
 		ADFA534A28E2F30B004E81BF /* Controllers+ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AD162BA228E5D40C003753EA /* SideMenuFlow */,
 				ADFA534B28E2F30B004E81BF /* News Flow */,
 				ADFA535528E2F30B004E81BF /* ViewController.swift */,
 				ADFA535628E2F30B004E81BF /* LiveViewController.swift */,
@@ -1688,6 +1768,7 @@
 				ADFA52CA28E2F24F004E81BF /* Poppins-Medium.otf in Resources */,
 				ADFA544028E2F30C004E81BF /* OddsCollectionViewCell.xib in Resources */,
 				ADFA543C28E2F30C004E81BF /* VideoHeighlightsCollectionViewCell.xib in Resources */,
+				AD162B9B28E5B7DD003753EA /* SideMenu.storyboard in Resources */,
 				ADFA53FC28E2F30C004E81BF /* Dialogs.strings in Resources */,
 				ADFA540428E2F30C004E81BF /* Home.storyboard in Resources */,
 				ADFA541628E2F30C004E81BF /* AnalysisTableViewCell.xib in Resources */,
@@ -1698,6 +1779,8 @@
 				ADFA542E28E2F30C004E81BF /* RankCollectionViewCell.xib in Resources */,
 				ADFA541C28E2F30C004E81BF /* ScoresTableViewCell.xib in Resources */,
 				ADFA52A028E2F1DB004E81BF /* LaunchScreen.storyboard in Resources */,
+				AD162B9628E5B1FF003753EA /* SideMenuTableViewCell.xib in Resources */,
+				AD162BA128E5D188003753EA /* LanguageTableViewCell.xib in Resources */,
 				ADFA52C928E2F24F004E81BF /* Poppins-Light.otf in Resources */,
 				ADFA540628E2F30C004E81BF /* Live.storyboard in Resources */,
 				ADFA540B28E2F30C004E81BF /* VideoTableViewCell.xib in Resources */,
@@ -1869,6 +1952,7 @@
 				ADFA54B928E2F30C004E81BF /* TeamInfo.swift in Sources */,
 				ADFA546A28E2F30C004E81BF /* NewsAPI.swift in Sources */,
 				ADFA543E28E2F30C004E81BF /* SelectionCollectionViewCell.swift in Sources */,
+				AD162B9928E5B44C003753EA /* SideMenuViewController.swift in Sources */,
 				ADFA54A528E2F30C004E81BF /* ScoresByIndexResponse.swift in Sources */,
 				ADFA544328E2F30C004E81BF /* RoundSelectionCollectionViewCell.swift in Sources */,
 				ADFA549828E2F30C004E81BF /* LeagueStandingList.swift in Sources */,
@@ -1876,8 +1960,10 @@
 				ADFA544828E2F30C004E81BF /* NewsDetailsViewModel.swift in Sources */,
 				ADFA543B28E2F30C004E81BF /* VideoHeighlightsCollectionViewCell.swift in Sources */,
 				ADFA54BA28E2F30C004E81BF /* TeamStandingsResponse.swift in Sources */,
+				AD162B9528E5B1FF003753EA /* SideMenuTableViewCell.swift in Sources */,
 				ADFA54C228E2F30C004E81BF /* FootballCompany.swift in Sources */,
 				ADFA54A928E2F30C004E81BF /* BreiefingResponse.swift in Sources */,
+				AD162BA528E5D43A003753EA /* LanguageViewController.swift in Sources */,
 				ADFA541F28E2F30C004E81BF /* LeagueTableViewCell.swift in Sources */,
 				ADFA54C628E2F30C004E81BF /* League.swift in Sources */,
 				ADFA54BF28E2F30C004E81BF /* NewsDetails.swift in Sources */,
@@ -1911,6 +1997,7 @@
 				ADFA54AD28E2F30C004E81BF /* EventResponse.swift in Sources */,
 				ADFA546128E2F30C004E81BF /* EventViewController.swift in Sources */,
 				ADFA549928E2F30C004E81BF /* LeagueResponse.swift in Sources */,
+				AD162BA828E5D79A003753EA /* PagesViewController.swift in Sources */,
 				ADFA542828E2F30C004E81BF /* EventsHomeTableViewCell.swift in Sources */,
 				ADFA542A28E2F30C004E81BF /* EventTechnicTableViewCell.swift in Sources */,
 				ADFA543A28E2F30C004E81BF /* NewsGamesCollectionViewCell.swift in Sources */,
@@ -1924,6 +2011,7 @@
 				ADFA544928E2F30C004E81BF /* Extensions+NewsViewController.swift in Sources */,
 				ADFA543128E2F30C004E81BF /* PointsCollectionViewCell.swift in Sources */,
 				ADFA547828E2F30C004E81BF /* UISegmentedControl+Extension.swift in Sources */,
+				AD162BA028E5D188003753EA /* LanguageTableViewCell.swift in Sources */,
 				ADFA54A728E2F30C004E81BF /* BasketballIndexList.swift in Sources */,
 				ADFA547128E2F30C004E81BF /* UIColor+Extension.swift in Sources */,
 				ADFA541528E2F30C004E81BF /* AnalysisFooterTableViewCell.swift in Sources */,
