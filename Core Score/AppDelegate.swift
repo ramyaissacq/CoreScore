@@ -19,8 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         UNUserNotificationCenter.current().delegate = self
         prepareSendNotifications()
-        
         application.registerForRemoteNotifications()
+        
+        if AppPreferences.getIsFirstRun(){
+            Utility.gotoHome()
+        }
+        else{
+            AppPreferences.setIsFirstRun(value: true)
+        }
         
         return true
     }
@@ -28,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         
     }
+    
+   
 
 
 }

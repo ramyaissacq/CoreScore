@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Lottie
 class IndexViewController: UIViewController {
     
     //MARK: - IBOutlets
@@ -18,6 +18,9 @@ class IndexViewController: UIViewController {
     
     @IBOutlet weak var indexTableHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var lblEmpty: UILabel!
+    @IBOutlet weak var emptyView: UIView!
+   // @IBOutlet weak var animationView: AnimationView!
     //MARK: - Variables
     var tableViewIndexObserver: NSKeyValueObservation?
     var categories = ["Asia (Full)","1x2 (Full)","Over/Under(Full)","Asia(1st half)","Over/Under(1st half)"]
@@ -34,6 +37,8 @@ class IndexViewController: UIViewController {
     }
     
     func initialSetup(){
+        
+        
         if HomeCategoryViewController.selectedSport == .basketball{
             categories = ["Spread","Total"]
             headers = ["Company","Home","Full Hand icap","Away","Home","Half Hand icap","Away","Home","1Part Hand icap","Away"]
@@ -75,6 +80,14 @@ class IndexViewController: UIViewController {
         
     }
     
+    func configureLottieAnimation(){
+//        animationView.contentMode = .scaleAspectFit
+//        animationView.loopMode = .loop
+//        animationView.animationSpeed = 0.5
+//        animationView.play()
+//        
+    }
+    
  
 }
 
@@ -83,11 +96,19 @@ extension IndexViewController:IndexViewModelDelgate{
     func didFinishBasketIndexFetch() {
         viewModel.filterBasketballScores(index: selectedCategoryIndex)
         self.tableViewIndex.reloadData()
+        if !viewModel.basketBallCurrent.isEmpty{
+            //animationView.stop()
+            emptyView.isHidden = true
+        }
     }
     
     func didFinishFetch() {
         viewModel.filterData(index: selectedCategoryIndex)
         self.tableViewIndex.reloadData()
+        if !viewModel.currentScores.isEmpty{
+           //animationView.stop()
+            emptyView.isHidden = true
+        }
     }
     
     

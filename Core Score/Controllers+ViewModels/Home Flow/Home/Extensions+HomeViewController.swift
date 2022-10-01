@@ -272,6 +272,9 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             if indexPath.row == viewModel.getModelCount(sport: selectedSportsType)-1 && selectedLeagueID == nil{
                 if page <= (viewModel.pageData?.lastPage ?? 0){
                     viewModel.getMatchesList(page: page)
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "loaderCell", for: indexPath) as! LoaderTableViewCell
+                    cell.activity.startAnimating()
+                    return cell
                 }
             }
         }

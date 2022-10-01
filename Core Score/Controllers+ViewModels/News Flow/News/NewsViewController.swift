@@ -54,7 +54,7 @@ class NewsViewController: BaseViewController {
         
         tableViewNews.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableViewNews.register(UINib(nibName: "HeighlightsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell1")
-        
+        tableViewNews.register(UINib(nibName: "LoaderTableViewCell", bundle: nil), forCellReuseIdentifier: "loaderCell")
         collectionViewNewsObserver = collectionViewNews.observe(\.contentSize, options: .new) { (_, change) in
             guard let height = change.newValue?.height else { return }
             self.collectionViewNewsHeight.constant = height

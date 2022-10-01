@@ -28,21 +28,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="336" height="58"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Tg-ho-PCC">
-                                <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                <rect key="frame" x="10" y="15" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0jq-Z9-37V"/>
                                     <constraint firstAttribute="width" constant="20" id="Z0B-Ru-q7G"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sideArrow" translatesAutoresizingMaskIntoConstraints="NO" id="Tnh-UT-wCF">
-                                <rect key="frame" x="311" y="12.5" width="15" height="15"/>
+                                <rect key="frame" x="311" y="17.5" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="7o1-sF-Qu8"/>
                                     <constraint firstAttribute="width" constant="15" id="Csk-fk-3hU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Analysis" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvd-gy-6m4">
-                                <rect key="frame" x="38" y="10" width="57.5" height="20"/>
+                                <rect key="frame" x="38" y="15" width="57.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                 <color key="textColor" name="black2"/>
                                 <nil key="highlightedColor"/>
@@ -53,11 +53,11 @@
                             <constraint firstItem="Tnh-UT-wCF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tvd-gy-6m4" secondAttribute="trailing" constant="8" id="FqA-oi-jUd"/>
                             <constraint firstItem="8Tg-ho-PCC" firstAttribute="leading" secondItem="suz-hL-haN" secondAttribute="leading" constant="10" id="Nl6-gn-Fp2"/>
                             <constraint firstItem="tvd-gy-6m4" firstAttribute="centerY" secondItem="8Tg-ho-PCC" secondAttribute="centerY" id="g8S-ex-StD"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Tg-ho-PCC" secondAttribute="bottom" constant="10" id="gbj-ar-GOH"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Tg-ho-PCC" secondAttribute="bottom" constant="15" id="gbj-ar-GOH"/>
                             <constraint firstAttribute="trailing" secondItem="Tnh-UT-wCF" secondAttribute="trailing" constant="10" id="jrm-4K-D0X"/>
                             <constraint firstItem="tvd-gy-6m4" firstAttribute="leading" secondItem="8Tg-ho-PCC" secondAttribute="trailing" constant="8" id="nPe-00-thH"/>
                             <constraint firstItem="Tnh-UT-wCF" firstAttribute="centerY" secondItem="8Tg-ho-PCC" secondAttribute="centerY" id="vhE-Bn-R8d"/>
-                            <constraint firstItem="8Tg-ho-PCC" firstAttribute="top" secondItem="suz-hL-haN" secondAttribute="top" constant="10" id="wmc-fT-r2Q"/>
+                            <constraint firstItem="8Tg-ho-PCC" firstAttribute="top" secondItem="suz-hL-haN" secondAttribute="top" constant="15" id="wmc-fT-r2Q"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

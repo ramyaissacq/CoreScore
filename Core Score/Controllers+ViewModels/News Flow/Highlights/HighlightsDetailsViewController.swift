@@ -14,15 +14,14 @@ class HighlightsDetailsViewController: BaseViewController {
     @IBOutlet weak var lblTitle:UILabel!
     @IBOutlet weak var lblTime:UILabel!
     @IBOutlet weak var tableViewVideos:UITableView!
-    @IBOutlet weak var videoTableHeight:NSLayoutConstraint!
-    @IBOutlet weak var scroll:UIScrollView!
     
     //MARK: - Variables
-    var tableViewVideoObserver: NSKeyValueObservation?
     var selectedVideo:VideoList?
-    var videoList:[VideoList]?
+   // var videoList:[VideoList]?
     let smallVideoPlayerViewController = AVPlayerViewController()
     var player:AVPlayer?
+    var viewModel = NewsViewModel()
+    var videoPage = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
@@ -38,12 +37,10 @@ class HighlightsDetailsViewController: BaseViewController {
     
     
     func initialSettings(){
+        viewModel.delegate = self
         setBackButton()
         tableViewVideos.register(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        tableViewVideoObserver = tableViewVideos.observe(\.contentSize, options: .new) { (_, change) in
-            guard let height = change.newValue?.height else { return }
-            self.videoTableHeight.constant = height
-        }
+        tableViewVideos.register(UINib(nibName: "LoaderTableViewCell", bundle: nil), forCellReuseIdentifier: "loaderCell")
         configureVideoPlayer()
         displaySelectedVideo()
         
@@ -75,20 +72,40 @@ class HighlightsDetailsViewController: BaseViewController {
 
 extension HighlightsDetailsViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videoList?.count ?? 0
+        return viewModel.videoList?.count ?? 0
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == ((viewModel.videoList?.count ?? 0) - 1) && videoPage <= (viewModel.videoPageData?.lastPage ?? 0){
+            viewModel.getVideos(page: videoPage)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loaderCell", for: indexPath) as! LoaderTableViewCell
+            cell.activity.startAnimating()
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! VideoTableViewCell
-        cell.configureCell(obj: videoList?[indexPath.row])
+        cell.configureCell(obj: viewModel.videoList?[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedVideo = videoList?[indexPath.row]
+        selectedVideo = viewModel.videoList?[indexPath.row]
         displaySelectedVideo()
-        scroll.setContentOffset(.zero, animated: true)
+        
+    }
+    
+    
+}
+
+
+extension HighlightsDetailsViewController:NewsViewModelDelegates{
+    func didFinishFetchNews() {
+        
+    }
+    
+    func didFinishFetchVideos() {
+        videoPage += 1
+        tableViewVideos.reloadData()
         
     }
     

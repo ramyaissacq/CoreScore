@@ -80,11 +80,11 @@ class LeagueViewModel{
         var values = [String]()
         values.append(leaguDetails?.leagueData01?.first?.nameEn ?? "")
         values.append(leaguDetails?.leagueData01?.first?.nameEnShort ?? "")
-        values.append("League")
+        values.append(leaguDetails?.leagueData01?.first?.type ?? "")
         values.append(leaguDetails?.leagueData02?.first?.subNameEn ?? "")
         values.append(leaguDetails?.leagueData02?.first?.totalRound ?? "")
-        values.append(leaguDetails?.leagueData02?.first?.currentRound ?? "")
-        values.append(leaguDetails?.leagueData02?.first?.currentSeason ?? "")
+        values.append(leaguDetails?.leagueData01?.first?.currRound ?? "")
+        values.append(leaguDetails?.leagueData01?.first?.currSeason ?? "")
         values.append(leaguDetails?.leagueData01?.first?.countryEn ?? "")
         return values
     }
@@ -92,7 +92,7 @@ class LeagueViewModel{
         var values = [String]()
         values.append(basketballLeague?.leagueData?.first?.nameEn ?? "")
         values.append(basketballLeague?.leagueData?.first?.nameEnShort ?? "")
-        values.append("League")
+        values.append(basketballLeague?.leagueData?.first?.leagueType ?? "")
         values.append("League")
         values.append("")
         values.append("")

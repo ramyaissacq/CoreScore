@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class LeagueViewController: UIViewController {
 
@@ -24,6 +25,9 @@ class LeagueViewController: UIViewController {
     @IBOutlet weak var ruleView: UIView!
     @IBOutlet weak var normalStandingsStack: UIStackView!
     @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var lblEmpty: UILabel!
+    //@IBOutlet weak var animationView: AnimationView!
+    
     
     
     //MARK: - Variables
@@ -48,6 +52,7 @@ class LeagueViewController: UIViewController {
     
     
     func initialSetting(){
+        //configureLottieAnimation()
         if HomeCategoryViewController.selectedSport == .basketball{
             types = ["League / Cup Information"]
         }
@@ -122,11 +127,11 @@ class LeagueViewController: UIViewController {
             tableViewRareStandings.isHidden = true
             if viewModel.normalStandings?.totalStandings?.isEmpty ?? true{
                 normalStandingsStack.isHidden = true
-                emptyView.isHidden = false
+                //emptyView.isHidden = false
                 
             }
             else{
-                emptyView.isHidden = true
+               // emptyView.isHidden = true
                 normalStandingsStack.isHidden = false
                 
             }
@@ -136,10 +141,10 @@ class LeagueViewController: UIViewController {
             
             if viewModel.leaguStanding?.list?.first?.score?.first?.groupScore?.isEmpty ?? true{
                 tableViewRareStandings.isHidden = true
-                emptyView.isHidden = false
+                //emptyView.isHidden = false
             }
             else{
-                emptyView.isHidden = true
+                //emptyView.isHidden = true
                 tableViewRareStandings.isHidden = false
                 
             }
@@ -157,6 +162,14 @@ class LeagueViewController: UIViewController {
             
         }
     }
+    
+    func configureLottieAnimation(){
+//        animationView.contentMode = .scaleAspectFit
+//        animationView.loopMode = .loop
+//        animationView.animationSpeed = 0.5
+//        animationView.play()
+        
+    }
 
 }
 
@@ -164,11 +177,15 @@ class LeagueViewController: UIViewController {
 
 extension LeagueViewController:LeagueViewModelProtocol{
     func didFinishFetchBasketballLeague() {
+        //animationView.stop()
+        emptyView.isHidden = true
         setupBasketballLeagueDetails()
     }
     
     
     func didFinishFetch() {
+       // animationView.stop()
+        emptyView.isHidden = true
         setupDetails()
     }
 }

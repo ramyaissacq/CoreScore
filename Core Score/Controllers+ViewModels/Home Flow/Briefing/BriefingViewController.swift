@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class BriefingViewController: UIViewController {
     @IBOutlet weak var textView:UITextView!
@@ -33,6 +34,9 @@ class BriefingViewController: UIViewController {
     @IBOutlet weak var collectionViewHome3: UICollectionView!
     
     @IBOutlet weak var collectionViewAway3: UICollectionView!
+    @IBOutlet weak var lblEmpty: UILabel!
+   // @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet weak var emptyView: UIView!
     
     //MARK: - Variables
     var viewModel = BreifingViewModel()
@@ -44,6 +48,7 @@ class BriefingViewController: UIViewController {
     }
     
     func initialSetup(){
+       // configureLottieAnimation()
         viewModel.delegate = self
         if HomeCategoryViewController.selectedSport == .soccer{
             scrollView.isHidden = true
@@ -75,16 +80,28 @@ class BriefingViewController: UIViewController {
         
     }
     
+    func configureLottieAnimation(){
+//        animationView.contentMode = .scaleAspectFit
+//        animationView.loopMode = .loop
+//        animationView.animationSpeed = 0.5
+//        animationView.play()
+        
+    }
+    
 }
 
 extension BriefingViewController:BreifingViewModelDelegate{
     func didFinishFetchBriefing() {
         setupBasketballBriefing()
+        //animationView.stop()
+        emptyView.isHidden = true
         
     }
     
     func didFinishFetch() {
         textView.attributedText = viewModel.briefingData?.recommendEn?.htmlToAttributedString
+       // animationView.stop()
+        emptyView.isHidden = true
     }
     
     

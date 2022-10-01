@@ -67,7 +67,9 @@ extension NewsViewController:UICollectionViewDelegate,UICollectionViewDataSource
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HighlightsDetailsViewController") as! HighlightsDetailsViewController
                 let rev:[VideoList] = viewModel.videoList?.reversed() ?? []
                 vc.selectedVideo = rev[indexPath.row]
-                vc.videoList = viewModel.videoList
+                vc.viewModel.videoList = viewModel.videoList
+                vc.viewModel.videoPageData = viewModel.videoPageData
+                vc.videoPage = videoPage
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             }
@@ -109,6 +111,9 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource{
         if selectedHeaderIndex == 0{
             if indexPath.row == ((viewModel.newsList?.count ?? 0) - 1) && newsPage <= (viewModel.newsPageData?.lastPage ?? 0){
                 viewModel.getNews(page: newsPage)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "loaderCell", for: indexPath) as! LoaderTableViewCell
+                cell.activity.startAnimating()
+                return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NewsTableViewCell
             cell.configureCell(obj: viewModel.newsList?[indexPath.row])
@@ -117,6 +122,9 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource{
         else{
             if indexPath.row == ((viewModel.videoList?.count ?? 0) - 1) && videoPage <= (viewModel.videoPageData?.lastPage ?? 0){
                 viewModel.getVideos(page: videoPage)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "loaderCell", for: indexPath) as! LoaderTableViewCell
+                cell.activity.startAnimating()
+                return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! HeighlightsTableViewCell
             cell.configureCell(obj: viewModel.videoList?[indexPath.row])
@@ -134,7 +142,9 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource{
         else{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "HighlightsDetailsViewController") as! HighlightsDetailsViewController
             vc.selectedVideo = viewModel.videoList?[indexPath.row]
-            vc.videoList = viewModel.videoList
+            vc.viewModel.videoList = viewModel.videoList
+            vc.viewModel.videoPageData = viewModel.videoPageData
+            vc.videoPage = videoPage
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

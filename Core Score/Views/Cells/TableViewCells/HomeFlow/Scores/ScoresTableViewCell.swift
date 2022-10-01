@@ -195,13 +195,7 @@ class ScoresTableViewCell: UITableViewCell {
         else{
             indexViewYellow.isHidden = false
         }
-        if obj?.havOdds ?? false{
-            viewIndex.isHidden = false
-        }
-        else{
-            viewIndex.isHidden = true
-            
-        }
+        
         if timeIndex == 0{
             makeAllBottomViewsShow()
             
@@ -210,6 +204,14 @@ class ScoresTableViewCell: UITableViewCell {
             makeAllBottomViewsHide()
         }
         if timeIndex == 0{
+            if obj?.havOdds ?? false{
+                viewIndex.isHidden = false
+            }
+            else{
+                viewIndex.isHidden = true
+                
+            }
+            
         if obj?.havEvent ?? false{
             viewEvent.isHidden = false
         }

@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import MessageUI
 
-class SideMenuViewController: BaseViewController {
+class SideMenuViewController:UIViewController{
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Language","Privacy Policy","Term & Condition","Url Alternative","Download App","About Us"]
+    var menus = ["Language","Privacy Policy","Share App","Feed Back","Rate Us"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +18,21 @@ class SideMenuViewController: BaseViewController {
     }
     
     func initialSettings(){
-        setBackButton()
+        //setBackButton()
         tableView.register(UINib(nibName: "SideMenuTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+    }
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["you@yoursite.com"])
+            //mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+        }
     }
    
 
@@ -46,12 +60,12 @@ extension SideMenuViewController:UITableViewDelegate,UITableViewDataSource{
         case 1:
             pagesVC.slug = .privacy
             self.navigationController?.pushViewController(pagesVC, animated: true)
-        case 2:
-            pagesVC.slug = .terms
-            self.navigationController?.pushViewController(pagesVC, animated: true)
-        case 5:
-            pagesVC.slug = .aboutUS
-            self.navigationController?.pushViewController(pagesVC, animated: true)
+            
+        case 3:
+            sendEmail()
+            
+       
+            
             
         default:
             break
@@ -59,5 +73,13 @@ extension SideMenuViewController:UITableViewDelegate,UITableViewDataSource{
         }
     }
     
+    
+}
+
+
+extension SideMenuViewController:MFMailComposeViewControllerDelegate{
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
     
 }

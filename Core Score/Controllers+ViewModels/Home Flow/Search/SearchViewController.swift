@@ -29,6 +29,7 @@ class SearchViewController: BaseViewController {
         setTitle()
         setBackButton()
         tableView.register(UINib(nibName: "ScoresTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "LoaderTableViewCell", bundle: nil), forCellReuseIdentifier: "loaderCell")
         viewModel.delegate = self
         
     }
@@ -103,6 +104,9 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
         if indexPath.row == (self.viewModel.matches?.count ?? 0) - 1{
             if (viewModel.pageData?.lastPage ?? 0) > page{
                 viewModel.getMatchesList(page: page)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "loaderCell", for: indexPath) as! LoaderTableViewCell
+                cell.activity.startAnimating()
+                return cell
             }
         }
         }

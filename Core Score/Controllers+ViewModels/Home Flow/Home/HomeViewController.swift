@@ -114,6 +114,7 @@ class HomeViewController: BaseViewController {
         collectionViewHighlights.registerCell(identifier: "HighlightsCollectionViewCell")
         collectionViewCategory.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
         tableView.register(UINib(nibName: "ScoresTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "LoaderTableViewCell", bundle: nil), forCellReuseIdentifier: "loaderCell")
         refreshControl = UIRefreshControl()
         //refreshControl?.tintColor = .clear
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -340,7 +341,8 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func menuTapped(){
-        openVC(storyBoard: "SideMenu", identifier: "SideMenuViewController")
+        BaseViewController.openSideMenu(vc: self)
+        //openVC(storyBoard: "SideMenu", identifier: "SideMenuViewController")
     }
     
     @objc func searchTapped(){

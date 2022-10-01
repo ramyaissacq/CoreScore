@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import Lottie
 
 class AnalysisViewController: UIViewController {
     
     @IBOutlet weak var tableViewAnalysis: UITableView!
     
+    @IBOutlet weak var lblEmpty: UILabel!
+   // @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet weak var emptyView: UIView!
     var headerSizes = [CGFloat]()
     var viewModel = AnalysisViewModel()
     var sectionHeaders = ["Head to head","Home Team Recent Matches","Away Team Recent Matches","Home Team Odds","Away Team Odds"]
@@ -42,22 +46,30 @@ class AnalysisViewController: UIViewController {
         headerSizes = headerSizes.map{$0+balance}
         viewModel.fetchAnalysisData()
         }
-        
-        
-        
-       
+       // configureLottieAnimation()
+     
     }
     
-
+    func configureLottieAnimation(){
+//        animationView.contentMode = .scaleAspectFit
+//        animationView.loopMode = .loop
+//        animationView.animationSpeed = 0.5
+//        animationView.play()
+    }
+   
 }
 
 extension AnalysisViewController:AnalysisViewModelDelegate{
     func didFinishBasketAnalysis() {
         tableViewAnalysis.reloadData()
+       // animationView.stop()
+        emptyView.isHidden = true
     }
     
     func didFinishFetch() {
         tableViewAnalysis.reloadData()
+       // animationView.stop()
+        emptyView.isHidden = true
     }
     
     

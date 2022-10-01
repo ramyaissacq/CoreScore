@@ -54,7 +54,10 @@ class NewsDetailsViewController: BaseViewController {
     func setupDetails(){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Utility.dateFormat.ddMMyyyyWithTimeZone.rawValue
-        lblDate.text = Utility.formatDate(date: dateFormatter.date(from: viewModel.newsDetails?.createTime ?? ""), with: .ddMMMyyyy)
+        if let dt = dateFormatter.date(from: viewModel.newsDetails?.createTime ?? ""){
+            lblTime.text = dt.timeAgoDisplay()
+        lblDate.text = Utility.formatDate(date: dt, with: .ddMMMyyyy)
+        }
         lblTitle.text = viewModel.newsDetails?.title?.htmlToString
         imgNews.setImage(with: viewModel.newsDetails?.path, placeholder: Utility.getPlaceHolder())
         lblDescription.text = viewModel.newsDetails?.description?.htmlToString

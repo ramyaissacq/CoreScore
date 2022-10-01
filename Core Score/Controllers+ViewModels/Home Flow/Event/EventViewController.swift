@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import Lottie
 
 class EventViewController: UIViewController {
    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lblEmpty: UILabel!
+  //  @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet weak var emptyView: UIView!
     
     var headers = ["GOALS AND ASSISTS","SUBTITUTIONS","FOULS"]
     var viewModel = EventsViewModel()
@@ -22,6 +26,7 @@ class EventViewController: UIViewController {
     
 
     func initialSetup(){
+       // configureLottieAnimation()
         tableView.register(UINib(nibName: "EventsHomeTableViewCell", bundle: nil), forCellReuseIdentifier: "homeCell")
         tableView.register(UINib(nibName: "EventsAwayTableViewCell", bundle: nil), forCellReuseIdentifier: "awayCell")
         tableView.register(UINib(nibName: "EventTechnicTableViewCell", bundle: nil), forCellReuseIdentifier: "TechnicCell")
@@ -32,13 +37,21 @@ class EventViewController: UIViewController {
        
     }
     
-   
-
+    func configureLottieAnimation(){
+//        animationView.contentMode = .scaleAspectFit
+//        animationView.loopMode = .loop
+//        animationView.animationSpeed = 0.5
+//        animationView.play()
+        
+    }
+ 
 }
 
 extension EventViewController:EventsViewModelDelegate{
     func didFinishEventsFetch() {
         self.tableView.reloadData()
+        //animationView.stop()
+        emptyView.isHidden = true
     }
     
     

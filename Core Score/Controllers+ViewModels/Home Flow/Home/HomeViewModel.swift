@@ -206,6 +206,11 @@ extension HomeVieModel{
             matches = originals?.filter{!($0.state == 0 || $0.state == -1)}
         case 2:
             matches = originals?.filter{$0.state == 0}
+            let page = delegate!.getCurrentPage()
+            if matches?.count == 0 && page <= (pageData?.lastPage ?? 0){
+                getMatchesList(page: page)
+                
+            }
         case 3:
             matches = originals?.filter{$0.state == -1}
             let page = delegate!.getCurrentPage()
