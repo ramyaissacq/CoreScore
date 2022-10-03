@@ -18,6 +18,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var imgCurrent: UIImageView!
     
+    @IBOutlet weak var fixedNext: UILabel!
     var callSkip:(()->Void)?
     var callNext:(()->Void)?
     override func awakeFromNib() {

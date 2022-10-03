@@ -24,10 +24,10 @@ class AwardsViewController: BaseViewController {
     @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var animationView: AnimationView!
     //MARK: - Variables
-    var topTitles = ["Team Standings","Player Standings"]
-    var normalTeamHeadings = ["Ranking","Team Name","MP","W","D","L","GF","GA","PTs","More"]
-    var headings2 = ["Rank","Team Name","Player Name","Goals","Home","Away","More"]
-    var rareTeamHeadings = ["Ranking","Team Name","MP","W","D","L","GF","GA","PTs"]
+    var topTitles = ["Team Standings".localized,"Player Standings".localized]
+    var normalTeamHeadings = ["Ranking".localized,"Team Name".localized,"MP","W","D","L","GF","GA","PTs","More".localized]
+    var headings2 = ["Rank".localized,"Team Name".localized,"Player Name".localized,"Goals".localized,"Home".localized,"Away".localized,"More".localized]
+    var rareTeamHeadings = ["Ranking".localized,"Team Name".localized,"MP","W","D","L","GF","GA","PTs"]
     var normalHeaderSizes = [CGFloat]()
     var rareHeaderSizes = [CGFloat]()
     var secondHeaderSizes = [CGFloat]()
@@ -66,7 +66,7 @@ class AwardsViewController: BaseViewController {
         FootballLeague.populateFootballLeagues()
         configureSportsDropDown()
         configureLeagueDropDown()
-        lblSports.text = "Football"
+        lblSports.text = "Football".localized
         lblLeague.text = FootballLeague.leagues?.first?.name
         selectedLeagueID = FootballLeague.leagues?.first?.id
         //headers = headings1
@@ -156,7 +156,7 @@ class AwardsViewController: BaseViewController {
                 tableViewStandings.isHidden = true
                 leagueView.isHidden = true
                 animationView.play()
-                emptyLabel.text = "Sorry!...No standings found"
+                emptyLabel.text = "Sorry!...No standings found".localized
                 emptyView.isHidden = false
                 
             }
@@ -187,7 +187,7 @@ class AwardsViewController: BaseViewController {
                 tableViewStandings.isHidden = true
                 leagueView.isHidden = true
                 animationView.play()
-                emptyLabel.text = "Sorry!...No standings found"
+                emptyLabel.text = "Sorry!...No standings found".localized
                 emptyView.isHidden = false
                 
             }
@@ -197,7 +197,7 @@ class AwardsViewController: BaseViewController {
     
     func configureSportsDropDown(){
         sportsDropDown = DropDown()
-        sportsDropDown?.dataSource = ["Football"]
+        sportsDropDown?.dataSource = ["Football".localized]
         sportsDropDown?.anchorView = lblSports
         sportsDropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
           print("Selected item: \(item) at index: \(index)")

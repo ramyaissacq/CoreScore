@@ -14,7 +14,7 @@ class EventViewController: UIViewController {
   //  @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var emptyView: UIView!
     
-    var headers = ["GOALS AND ASSISTS","SUBTITUTIONS","FOULS"]
+    var headers = ["GOALS AND ASSISTS".localized,"SUBTITUTIONS".localized,"FOULS".localized]
     var viewModel = EventsViewModel()
     var homeName:String?
     var awayName:String?

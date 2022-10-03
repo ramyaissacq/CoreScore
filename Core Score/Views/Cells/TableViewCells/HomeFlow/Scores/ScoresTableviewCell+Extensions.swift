@@ -14,7 +14,7 @@ extension ScoresTableViewCell{
         var value = ""
         switch state{
         case 0:
-            value = "SOON"
+            value = "SOON".localized
         case 1:
             value = "FH"
         case 2:

@@ -222,10 +222,10 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
             return CGSize(width: 20, height: 20)
         }
         else if collectionView == collectionViewPoints{
-//            let str = points?[indexPath.row] ?? ""
-//            let w = str.width(forHeight: 14, font: UIFont(name: "Poppins-Regular", size: 12)!) + 16
-//            return CGSize(width: w, height: 30)
-            return CGSize(width: 120, height: 30)
+            let str = points?[indexPath.row] ?? ""
+            let w = str.width(forHeight: 14, font: UIFont(name: "Poppins-Regular", size: 12)!) + 16
+            return CGSize(width: w, height: 30)
+            //return CGSize(width: 120, height: 30)
             
         }
         return CGSize(width: headerSizes[indexPath.row], height: 55)

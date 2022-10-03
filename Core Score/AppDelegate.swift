@@ -9,14 +9,17 @@ import UIKit
 import CoreData
 import IQKeyboardManagerSwift
 import UserNotifications
+import MOLH
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
+        MOLH.shared.activate(true)
+        MOLHLanguage.setDefaultLanguage("en")
         UNUserNotificationCenter.current().delegate = self
         prepareSendNotifications()
         application.registerForRemoteNotifications()
@@ -35,7 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-   
+    func reset() {
+        Utility.gotoHome()
+    }
 
 
 }

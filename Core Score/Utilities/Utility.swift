@@ -5,9 +5,7 @@ import Reachability
 import ProgressHUD
 import CoreLocation
 import UserNotifications
-
-
-//import MOLH
+import MOLH
 
 class Utility: NSObject {
     
@@ -294,8 +292,12 @@ class Utility: NSObject {
     
     class func getCurrentLang() -> String
     {
-        return "en"
-        //return MOLHLanguage.currentAppleLanguage()
+        var lang = MOLHLanguage.currentAppleLanguage()
+        if lang == "zh"{
+            lang = "cn"
+        }
+       
+        return lang
     }
     
     class func getSystemTimeZoneTime(dateString:String)->Date{

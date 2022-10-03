@@ -31,9 +31,9 @@ class LeagueViewController: UIViewController {
     
     
     //MARK: - Variables
-    var types = ["League / Cup Information","Match"]
-    var headings = ["Ranking","Team Name","MP","W","D","L","GF","GA","PTs","More"]
-    var secondHeadings = ["Ranking","Team Name","MP","W","D","L","GF","GA","PTs"]
+    var types = ["League / Cup Information".localized,"Match".localized]
+    var headings = ["Ranking".localized,"Team Name".localized,"MP","W","D","L","GF","GA","PTs","More".localized]
+    var secondHeadings = ["Ranking".localized,"Team Name".localized,"MP","W","D","L","GF","GA","PTs"]
     var headerSizes = [CGFloat]()
     var secondHeaderSizes = [CGFloat]()
     var tableViewRareStandingsObserver: NSKeyValueObservation?
@@ -54,7 +54,7 @@ class LeagueViewController: UIViewController {
     func initialSetting(){
         //configureLottieAnimation()
         if HomeCategoryViewController.selectedSport == .basketball{
-            types = ["League / Cup Information"]
+            types = ["League / Cup Information".localized]
         }
         collectionViewTypes.registerCell(identifier: "SelectionCollectionViewCell")
         tableViewLeague.register(UINib(nibName: "LeagueTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
@@ -240,7 +240,7 @@ extension LeagueViewController:UICollectionViewDelegate,UICollectionViewDataSour
                 return CGSize(width: w-10, height: 35)
             }
             else{
-                let strW = "Match".width(forHeight: 19, font: UIFont(name: "Poppins-Regular", size: 19)!)
+                let strW = "Match".localized.width(forHeight: 19, font: UIFont(name: "Poppins-Regular", size: 19)!)
                let width2 = strW + 16
               return CGSize(width: width2, height: 35)
             }

@@ -13,7 +13,7 @@ class AnalysisOddsTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionViewHeading: UICollectionView!
     
     //MARK: - Variables
-    var titles = ["","Round","W","D","L","%","OVER","UNDER"]
+    var titles = ["","Round".localized,"W","D","L","%","OVER".localized,"UNDER".localized]
     var values = [String]()
     var sizes = [CGFloat]()
     
@@ -61,17 +61,17 @@ class AnalysisOddsTableViewCell: UITableViewCell {
     func getTitle(index:Int)->String{
         switch index{
         case 0:
-            return "Total(Fulltime)"
+            return "Total(Fulltime)".localized
         case 1:
-            return "Home(Fulltime)"
+            return "Home(Fulltime)".localized
         case 2:
-            return "Away(Fulltime)"
+            return "Away(Fulltime)".localized
         case 3:
-            return "Total(Halftime)"
+            return "Total(Halftime)".localized
         case 4:
-            return "Home(Halftime)"
+            return "Home(Halftime)".localized
         case 5:
-            return "Away(Halftime)"
+            return "Away(Halftime)".localized
         default:
             return ""
         }

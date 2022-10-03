@@ -18,7 +18,7 @@ class AlternativeViewController: BaseViewController {
     
 
     func initialSettings(){
-        self.title = "URL Alternatives"
+        self.title = "URL Alternatives".localized
         setBackButton()
         tableView.register(UINib(nibName: "AlternativeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
        

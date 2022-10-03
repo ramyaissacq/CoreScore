@@ -180,7 +180,7 @@ class HomeViewController: BaseViewController {
         //        arr.insert("All Leagues", at: 0)
         //        leagueDropDown?.dataSource = arr
         //        lblLeague.text = arr.first
-        lblLeague.text = "All Leagues"
+        lblLeague.text = "All Leagues".localized
         leagueDropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
             lblLeague.text = item
             if index == 0{
@@ -203,11 +203,11 @@ class HomeViewController: BaseViewController {
         viewModel.categories = viewModel.todayCategories
         collectionViewCategory.reloadData()
         selectedTimeIndex = 0
-        lblTime.text = "Today"
-        lblHeader.text = "Today"
+        lblTime.text = "Today".localized
+        lblHeader.text = "Today".localized
         if selectedSportsType == .soccer{
             var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
-            arr.insert("All Leagues", at: 0)
+            arr.insert("All Leagues".localized, at: 0)
             self.leagueDropDown?.dataSource = arr
             lblLeague.text = arr.first
             page = 1
@@ -225,9 +225,9 @@ class HomeViewController: BaseViewController {
     func configureTimeDropDown(){
         timeDropDown = DropDown()
         timeDropDown?.anchorView = lblTime
-        timeDropDown?.dataSource = ["Today","Result","Schedule"]
-        lblTime.text = "Today"
-        lblHeader.text = "Today"
+        timeDropDown?.dataSource = ["Today".localized,"Result".localized,"Schedule".localized]
+        lblTime.text = "Today".localized
+        lblHeader.text = "Today".localized
         timeDropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
             lblTime.text = item
             lblHeader.text = item
@@ -238,7 +238,7 @@ class HomeViewController: BaseViewController {
                 collectionViewCategory.reloadData()
                 if selectedSportsType == .soccer{
                     var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
-                    arr.insert("All Leagues", at: 0)
+                    arr.insert("All Leagues".localized, at: 0)
                     self.leagueDropDown?.dataSource = arr
                     lblLeague.text = arr.first
                     page = 1
@@ -249,12 +249,12 @@ class HomeViewController: BaseViewController {
                 }
             case 1:
                 viewModel.categories = viewModel.pastDates
-                leagueDropDown?.dataSource = ["All Leagues"]
-                lblLeague.text = "All Leagues"
+                leagueDropDown?.dataSource = ["All Leagues".localized]
+                lblLeague.text = "All Leagues".localized
             case 2:
                 viewModel.categories = viewModel.futureDates
-                leagueDropDown?.dataSource = ["All Leagues"]
-                lblLeague.text = "All Leagues"
+                leagueDropDown?.dataSource = ["All Leagues".localized]
+                lblLeague.text = "All Leagues".localized
                 
             default:
                 break

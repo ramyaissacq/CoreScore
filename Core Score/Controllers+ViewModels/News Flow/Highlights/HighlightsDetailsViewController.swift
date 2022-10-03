@@ -18,7 +18,7 @@ class HighlightsDetailsViewController: BaseViewController {
     //MARK: - Variables
     var selectedVideo:VideoList?
    // var videoList:[VideoList]?
-    let smallVideoPlayerViewController = AVPlayerViewController()
+    var smallVideoPlayerViewController = AVPlayerViewController()
     var player:AVPlayer?
     var viewModel = NewsViewModel()
     var videoPage = 1
@@ -48,6 +48,7 @@ class HighlightsDetailsViewController: BaseViewController {
     
     func configureVideoPlayer(){
         // smallVideoPlayerViewController.showsPlaybackControls = false
+        smallVideoPlayerViewController.delegate = self
         player = AVPlayer()
         smallVideoPlayerViewController.player = player
         videoView.addSubview(smallVideoPlayerViewController.view)
@@ -110,4 +111,17 @@ extension HighlightsDetailsViewController:NewsViewModelDelegates{
     }
     
     
+}
+
+
+extension HighlightsDetailsViewController:AVPlayerViewControllerDelegate{
+    func playerViewController(_ playerViewController: AVPlayerViewController, willEndFullScreenPresentationWithAnimationCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        player?.pause()
+        player = nil
+        guard let videoUrl = URL(string: selectedVideo?.path ?? "") else{return}
+        player = AVPlayer(playerItem: AVPlayerItem(url: videoUrl))
+        smallVideoPlayerViewController.player = player
+       print("tiggered")
+        
+    }
 }

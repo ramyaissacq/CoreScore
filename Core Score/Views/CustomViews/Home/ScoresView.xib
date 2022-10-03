@@ -23,6 +23,11 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="wJP-R5-gCY"/>
                 <outlet property="cornerStack" destination="yRR-Jp-uT7" id="jbw-7h-cuP"/>
                 <outlet property="cornerView" destination="244-Ys-5tg" id="LGI-im-rF1"/>
+                <outlet property="fixedAnalysis" destination="mKV-p0-Na9" id="cqj-PB-MxV"/>
+                <outlet property="fixedBriefing" destination="lVg-NQ-P6q" id="gcY-vr-EUb"/>
+                <outlet property="fixedEvent" destination="uX1-7d-gK8" id="ekL-Ob-XRA"/>
+                <outlet property="fixedIndex" destination="BVn-Ab-11O" id="Zxc-1r-Ycm"/>
+                <outlet property="fixedLeague" destination="udB-Bd-PMb" id="ZEk-wo-Ecw"/>
                 <outlet property="indexViewYellow" destination="r6t-lp-pOc" id="a4I-Xt-NQi"/>
                 <outlet property="lblAwayName" destination="ffT-bn-fk7" id="HLk-mM-JHU"/>
                 <outlet property="lblCorner" destination="hcG-D1-M1a" id="WX3-Qw-crq"/>
@@ -56,8 +61,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fxw-PV-VNs" userLabel="TopView">
                     <rect key="frame" x="0.0" y="0.0" width="469" height="254.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Chicago Dutch Lions FC II " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDx-ho-dbp">
-                            <rect key="frame" x="5" y="44.5" width="154" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDx-ho-dbp">
+                            <rect key="frame" x="5" y="44.5" width="6.5" height="17"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                             <color key="textColor" name="black1"/>
                             <nil key="highlightedColor"/>
@@ -65,7 +70,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caG-xq-qqX">
                             <rect key="frame" x="199.5" y="38" width="70" height="30"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEGERA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDb-lZ-dxW">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDb-lZ-dxW">
                                     <rect key="frame" x="5" y="5" width="60" height="20"/>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                     <color key="textColor" name="black1"/>
@@ -87,14 +92,14 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicago Dutch Lions FC II " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffT-bn-fk7">
-                            <rect key="frame" x="310" y="44.5" width="154" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffT-bn-fk7">
+                            <rect key="frame" x="457.5" y="44.5" width="6.5" height="17"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                             <color key="textColor" name="black1"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Group - A" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnj-Ir-Yqd">
-                            <rect key="frame" x="197.5" y="8" width="74" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnj-Ir-Yqd">
+                            <rect key="frame" x="232.5" y="8" width="4" height="21"/>
                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                             <color key="textColor" name="AccentColor"/>
                             <nil key="highlightedColor"/>
@@ -180,7 +185,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="2vS-vu-8FR" userLabel="middleStack">
                             <rect key="frame" x="206" y="73" width="57" height="34.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat, 21 Nov" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwa-CT-bUs">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwa-CT-bUs">
                                     <rect key="frame" x="0.0" y="0.0" width="57" height="15.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="57" id="hDf-j6-Rh7"/>
@@ -189,7 +194,7 @@
                                     <color key="textColor" name="gray1"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="22:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZs-2G-7ae">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZs-2G-7ae">
                                     <rect key="frame" x="0.0" y="17.5" width="57" height="17"/>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
                                     <color key="textColor" name="black1"/>

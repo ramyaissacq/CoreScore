@@ -23,8 +23,8 @@ class IndexViewController: UIViewController {
    // @IBOutlet weak var animationView: AnimationView!
     //MARK: - Variables
     var tableViewIndexObserver: NSKeyValueObservation?
-    var categories = ["Asia (Full)","1x2 (Full)","Over/Under(Full)","Asia(1st half)","Over/Under(1st half)"]
-    var headers = ["Company","Home","Live Hand icap","Away","Home","Live Hand icap","Away"]
+    var categories = ["Asia (Full)".localized,"1x2 (Full)".localized,"Over/Under(Full)".localized,"Asia(1st half)".localized,"Over/Under(1st half)".localized]
+    var headers = ["Company".localized,"Home".localized,"Live Handicap".localized,"Away".localized,"Home".localized,"Live Handicap".localized,"Away".localized]
     var headerSizes = [CGFloat]()
     var categorySizes = [CGFloat]()
     var viewModel = IndexViewModel()
@@ -40,8 +40,8 @@ class IndexViewController: UIViewController {
         
         
         if HomeCategoryViewController.selectedSport == .basketball{
-            categories = ["Spread","Total"]
-            headers = ["Company","Home","Full Hand icap","Away","Home","Half Hand icap","Away","Home","1Part Hand icap","Away"]
+            categories = ["Spread".localized,"Total".localized]
+            headers = ["Company".localized,"Home".localized,"Full Handicap".localized,"Away".localized,"Home".localized,"Half Handicap".localized,"Away".localized,"Home".localized,"1Part Handicap".localized,"Away".localized]
         }
         collectionViewCategory.registerCell(identifier: "RoundSelectionCollectionViewCell")
         collectionViewHeader.registerCell(identifier: "TitleCollectionViewCell")
@@ -154,7 +154,7 @@ extension IndexViewController:UICollectionViewDelegate,UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == collectionViewHeader{
-            return CGSize(width: headerSizes[indexPath.row], height: 55)
+            return CGSize(width: headerSizes[indexPath.row], height: 75)
         }
         else{
             if categorySizes.count > indexPath.row{

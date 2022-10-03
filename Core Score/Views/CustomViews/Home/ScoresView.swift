@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class ScoresView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var viewIndex: UIView!
@@ -47,6 +45,16 @@ class ScoresView: UIView {
     @IBOutlet weak var cornerView: UIView!
     @IBOutlet weak var tableViewQuarters: UITableView!
     
+    @IBOutlet weak var fixedIndex: UILabel!
+    
+    @IBOutlet weak var fixedAnalysis: UILabel!
+    
+    @IBOutlet weak var fixedLeague: UILabel!
+    
+    @IBOutlet weak var fixedEvent: UILabel!
+    
+    @IBOutlet weak var fixedBriefing: UILabel!
+    
     //MARK: - Variables
     var callBackIndex:(()->Void)?
     var callBackEvent:(()->Void)?
@@ -71,6 +79,7 @@ class ScoresView: UIView {
        func commonInit() {
            Bundle.main.loadNibNamed("ScoresView", owner: self, options: nil)
            contentView.fixInView(self)
+           setupLocalisation()
            tableViewQuarters.delegate = self
            tableViewQuarters.dataSource = self
            tableViewQuarters.register(UINib(nibName: "GeneralRowTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
@@ -90,6 +99,14 @@ class ScoresView: UIView {
            viewLeague.addGestureRecognizer(tapLg)
        }
     
+    func setupLocalisation(){
+        fixedIndex.text = "Index".localized
+        fixedAnalysis.text = "Analysis".localized
+        fixedLeague.text = "League".localized
+        fixedEvent.text = "Event".localized
+        fixedBriefing.text = "Briefing".localized
+    }
+    
     func configureView(obj:MatchList?){
         tableViewQuarters.isHidden = true
         cornerStack.isHidden = false
@@ -104,7 +121,7 @@ class ScoresView: UIView {
         //ScoresTableViewCell.getMinutesFromTimeInterval(interval: timeDifference)
         lblDate.text = "\(ScoresTableViewCell.getStatus(state: obj?.state ?? 0)) \(mins)'"
         if obj?.state == 0{
-            lblScore.text = "SOON"
+            lblScore.text = "SOON".localized
             let date = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
             lblDate.text = Utility.formatDate(date: date, with: .eddmmm)
         }
@@ -186,7 +203,7 @@ class ScoresView: UIView {
         lblHomeName.text = obj?.homeTeamEn
         lblAwayName.text = obj?.awayTeamEn
         if obj?.matchState == 0{
-            lblScore.text = "SOON"
+            lblScore.text = "SOON".localized
         }
         else{
         lblScore.text = "\(obj?.homeScore ?? "" ) : \(obj?.awayScore ?? "")"
@@ -245,8 +262,8 @@ class ScoresView: UIView {
             viewBriefing.isHidden = true
             
         }
-        homeScores = ["Home",obj?.home1 ?? "",obj?.home2 ?? "",obj?.home3 ?? "",obj?.home4 ?? "",obj?.homeScore ?? ""]
-        awayScores = ["Away",obj?.away1 ?? "",obj?.away2 ?? "",obj?.away3 ?? "",obj?.away4 ?? "",obj?.awayScore ?? ""]
+        homeScores = ["Home".localized,obj?.home1 ?? "",obj?.home2 ?? "",obj?.home3 ?? "",obj?.home4 ?? "",obj?.homeScore ?? ""]
+        awayScores = ["Away".localized,obj?.away1 ?? "",obj?.away2 ?? "",obj?.away3 ?? "",obj?.away4 ?? "",obj?.awayScore ?? ""]
         tableViewQuarters.reloadData()
         tableViewQuarters.isHidden = false
         

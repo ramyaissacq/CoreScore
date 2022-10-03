@@ -62,7 +62,7 @@ class LeagueViewModel{
     
     func populateData(){
         var tmpArr = [League]()
-        let keys = ["Full Name :","Abbreviation :","Type :","Current Sub-League :","Total Rounds :","Current Round :","Current Season :","Country :"]
+        let keys = ["Full Name :".localized,"Abbreviation :".localized,"Type :".localized,"Current Sub-League :".localized,"Total Rounds :".localized,"Current Round :".localized,"Current Season :".localized,"Country :".localized]
         var values = getFootballLeagueValues()
         if HomeCategoryViewController.selectedSport == .basketball{
           values = getBasketballLeagueValues()
@@ -93,7 +93,7 @@ class LeagueViewModel{
         values.append(basketballLeague?.leagueData?.first?.nameEn ?? "")
         values.append(basketballLeague?.leagueData?.first?.nameEnShort ?? "")
         values.append(basketballLeague?.leagueData?.first?.leagueType ?? "")
-        values.append("League")
+        values.append("League".localized)
         values.append("")
         values.append("")
         values.append(basketballLeague?.leagueData?.first?.currentSeason ?? "")

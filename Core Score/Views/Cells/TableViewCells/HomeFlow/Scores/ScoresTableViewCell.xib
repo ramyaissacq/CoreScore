@@ -487,6 +487,11 @@
             <connections>
                 <outlet property="cornerStack" destination="ZGz-7Q-SXf" id="LbT-WE-hzx"/>
                 <outlet property="cornerView" destination="J09-8r-51i" id="aX5-jh-wEB"/>
+                <outlet property="fixedAnalysis" destination="O8q-nL-ahp" id="Qa7-cY-Y7F"/>
+                <outlet property="fixedBriefing" destination="5vK-DK-hkd" id="ilF-bM-BhU"/>
+                <outlet property="fixedEvent" destination="ENL-vi-P9T" id="GZ9-xR-ysV"/>
+                <outlet property="fixedIndex" destination="Udf-0Y-rQu" id="zgI-sA-iIG"/>
+                <outlet property="fixedLeague" destination="Ezu-fb-tdi" id="jaq-4B-Qgm"/>
                 <outlet property="indexViewYellow" destination="Wr2-Ra-zvU" id="mWZ-1b-eiG"/>
                 <outlet property="lblAwayName" destination="Ioh-Tf-BQV" id="PBs-hw-YIb"/>
                 <outlet property="lblCorner" destination="4tH-69-gfO" id="Dnf-z5-2OZ"/>

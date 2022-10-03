@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import MOLH
 
 class LanguageViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     var languages = ["English","中文","Bahasa Indonesia","Việt Nam"]
+    var lang = MOLHLanguage.currentAppleLanguage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
@@ -22,8 +25,41 @@ class LanguageViewController: BaseViewController {
     func initialSettings(){
         setBackButton()
         tableView.register(UINib(nibName: "LanguageTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
         
+        var index = 0
+        switch lang{
+        case "en":
+            index = 0
+        case "zh":
+            index = 1
+        case "id":
+            index = 2
+        case "vi":
+            index = 3
+        default:
+            break
+            
+        }
+        
+        tableView.selectRow(at: IndexPath(row: index, section: 0), animated: false, scrollPosition: .top)
+    }
+    
+    func resetLanguage(index:Int){
+        switch index{
+        case 0:
+            lang = "en"
+        case 1:
+            lang = "zh-Hans"
+        case 2:
+            lang = "id"
+        case 3:
+            lang = "vi"
+            
+        default:
+            break
+        }
+        MOLHLanguage.setAppleLAnguageTo(lang)
+        MOLH.reset()
     }
    
 
@@ -40,5 +76,11 @@ extension LanguageViewController:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        resetLanguage(index: indexPath.row)
+    }
+    
     
 }
+
+

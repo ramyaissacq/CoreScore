@@ -10,7 +10,7 @@ import MessageUI
 
 class SideMenuViewController:UIViewController{
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Language","Privacy Policy","Share App","Feed Back","Rate Us"]
+    var menus = ["Language".localized,"Privacy Policy".localized,"Share App".localized,"Feed Back".localized,"Rate Us".localized]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -46,8 +46,8 @@ class AnalysisTableViewCell: UITableViewCell {
     }
     
     func configureCell(obj:BasketballAnalysisData?){
-        fixedLblCorner.text = "Total Points"
-        fixedLblHT.text = "Half"
+        fixedLblCorner.text = "Total Points".localized
+        fixedLblHT.text = "Half".localized
         lblLeague.text = obj?.leagueNameEn
         lblHome.text = obj?.homeTeamEn
         lblAway.text = obj?.awayTeamEn

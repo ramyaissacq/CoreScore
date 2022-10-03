@@ -26,7 +26,7 @@ class NewsViewController: BaseViewController {
     @IBOutlet weak var emptyView: UIView!
     //MARK: - Variables
     var collectionViewNewsObserver: NSKeyValueObservation?
-    var headers = ["News","Video"]
+    var headers = ["News".localized,"Video".localized]
     var selectedHeaderIndex = 0
     var viewModel = NewsViewModel()
     var newsPage = 1
@@ -74,11 +74,11 @@ class NewsViewController: BaseViewController {
     
     func setupViews(){
         if selectedHeaderIndex == 0{
-            lblHeader1.text = "Trending"
-            lblHeader2.text = "Recommended for you"
+            lblHeader1.text = "Trending".localized
+            lblHeader2.text = "Recommended for you".localized
         }else{
-            lblHeader1.text = "Match Highlights"
-            lblHeader2.text = "Latest Videos"
+            lblHeader1.text = "Match Highlights".localized
+            lblHeader2.text = "Latest Videos".localized
         }
         collectionViewNews.reloadData()
         tableViewNews.reloadData()

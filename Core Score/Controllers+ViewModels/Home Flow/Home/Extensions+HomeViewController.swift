@@ -22,8 +22,8 @@ extension HomeViewController:HomeViewModelDelegate{
     }
     
     func didFinishFetchBasketballScores() {
-        leagueDropDown?.dataSource = ["All Leagues"]
-        lblLeague.text = "All Leagues"
+        leagueDropDown?.dataSource = ["All Leagues".localized]
+        lblLeague.text = "All Leagues".localized
         viewModel.filterBasketballMatches(type: selectedType)
         prepareDisplays()
     }
@@ -45,7 +45,7 @@ extension HomeViewController:HomeViewModelDelegate{
         page += 1
         viewModel.filterMatches(type: selectedType)
         var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
-        arr.insert("All Leagues", at: 0)
+        arr.insert("All Leagues".localized, at: 0)
         self.leagueDropDown?.dataSource = arr
         self.lblLeague.text = arr.first
         prepareDisplays()
@@ -235,7 +235,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     func deleteHilights(id:Int){
         if longPressId == nil{
             longPressId = id
-            Dialog.openConfirmationDialog(title: "Delete Hilight", message: "Do you want to remove this match from hilights?") {
+            Dialog.openConfirmationDialog(title: "Delete Hilight".localized, message: "Do you want to remove this match from hilights?".localized) {
                 if self.selectedSportsType == .soccer{
                     
                     if AppPreferences.getMatchHighlights().contains(where: {$0.matchId == id}){
@@ -377,12 +377,12 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                     if self.selectedSportsType == .soccer{
                         Utility.scheduleLocalNotification(date: matchDate, subTitle: obj?.leagueName ?? "", body: "Match \(obj?.homeName ?? "") Vs \(obj?.awayName ?? "") will start now") {
                             DispatchQueue.main.async {
-                                Utility.showSuccessSnackView(message: "Reminder saved successfully", iconName: "")
+                                Utility.showSuccessSnackView(message: "Reminder saved successfully".localized, iconName: "")
                                 
                             }
                         } failed: {
                             DispatchQueue.main.async {
-                                Utility.showErrorSnackView(message: "Unable to Add Reminder")
+                                Utility.showErrorSnackView(message: "Unable to Add Reminder".localized)
                                 
                             }
                             
@@ -391,13 +391,13 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                     else{
                         Utility.scheduleLocalNotification(date: matchDate, subTitle: basketObj?.leagueNameEn ?? "", body: "Match \(basketObj?.homeTeamNameEn ?? "") Vs \(basketObj?.awayTeamNameEn ?? "") will start now"){
                             DispatchQueue.main.async {
-                                Utility.showSuccessSnackView(message: "Reminder saved successfully", iconName: "")
+                                Utility.showSuccessSnackView(message: "Reminder saved successfully".localized, iconName: "")
                                 
                             }
                             
                         } failed: {
                             DispatchQueue.main.async {
-                                Utility.showErrorSnackView(message: "Unable to Add Reminder")
+                                Utility.showErrorSnackView(message: "Unable to Add Reminder".localized)
                                
                             }
                             
@@ -406,7 +406,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                 }
                 else{
                     
-                    Utility.showErrorSnackView(message: "Please choose upcoming matches")
+                    Utility.showErrorSnackView(message: "Please choose upcoming matches".localized)
     
                 }
                 

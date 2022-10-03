@@ -46,21 +46,21 @@ class EventsHomeTableViewCell: UITableViewCell {
     static func getType(kind:Int) -> String{
         switch kind{
         case 1:
-            return "Goal"
+            return "Goal".localized
         case 2:
-            return "Red card"
+            return "Red card".localized
         case 3:
-            return "Yellow card"
+            return "Yellow card".localized
         case 7:
-            return "Penalty kick"
+            return "Penalty kick".localized
         case 8:
-            return "Own goals"
+            return "Own goals".localized
         case 9:
-            return "Two yellow to red"
+            return "Two yellow to red".localized
         case 11:
-            return "Substitution"
+            return "Substitution".localized
         case 13:
-            return "Missed Penalty"
+            return "Missed Penalty".localized
         default:
             return ""
         }

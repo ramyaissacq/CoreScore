@@ -17,6 +17,7 @@ pod 'Alamofire' #Webservice
  pod 'DropDown'
  pod 'lottie-ios'
  pod 'SideMenu'
+ pod 'MOLH'
 
   target 'Core ScoreTests' do
     inherit! :search_paths

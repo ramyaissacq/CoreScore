@@ -48,8 +48,19 @@ class ScoresTableViewCell: UITableViewCell {
     
     @IBOutlet weak var quartersStack: UIStackView!
     @IBOutlet weak var tableViewQuarters: UITableView!
-    
     @IBOutlet weak var separator2: UIView!
+    
+    @IBOutlet weak var fixedIndex: UILabel!
+    
+    @IBOutlet weak var fixedAnalysis: UILabel!
+    
+    @IBOutlet weak var fixedEvent: UILabel!
+    
+    
+    @IBOutlet weak var fixedLeague: UILabel!
+    @IBOutlet weak var fixedBriefing: UILabel!
+    
+    
     //MARK: - Variables
     var callIndexSelection:(()->Void)?
     var callAnalysisSelection:(()->Void)?
@@ -67,8 +78,7 @@ class ScoresTableViewCell: UITableViewCell {
         tableViewQuarters.delegate = self
         tableViewQuarters.dataSource = self
         tableViewQuarters.register(UINib(nibName: "GeneralRowTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
-        
+        setupLocalisation()
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapIndex))
         viewIndex.addGestureRecognizer(tap)
         
@@ -92,6 +102,14 @@ class ScoresTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setupLocalisation(){
+        fixedIndex.text = "Index".localized
+        fixedAnalysis.text = "Analysis".localized
+        fixedLeague.text = "League".localized
+        fixedEvent.text = "Event".localized
+        fixedBriefing.text = "Briefing".localized
     }
     
     @objc func actionLongPress(){
@@ -144,7 +162,7 @@ class ScoresTableViewCell: UITableViewCell {
             lblDate.text = Utility.formatDate(date: date, with: .eddmmm)
         }
         if obj?.state == 0 {
-            lblScore.text = "SOON"
+            lblScore.text = "SOON".localized
             lblDate.text = Utility.formatDate(date: date, with: .eddmmm)
         }
         let matchDate = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
@@ -244,7 +262,7 @@ class ScoresTableViewCell: UITableViewCell {
         lblHomeName.text = obj?.homeTeamEn
         lblAwayName.text = obj?.awayTeamEn
         if obj?.matchState == 0{
-            lblScore.text = "SOON"
+            lblScore.text = "SOON".localized
         }
         else{
         lblScore.text = "\(obj?.homeScore ?? "" ) : \(obj?.awayScore ?? "")"
@@ -312,8 +330,8 @@ class ScoresTableViewCell: UITableViewCell {
             indexViewYellow.isHidden = false
 
         }
-        homeScores = ["Home",obj?.home1 ?? "",obj?.home2 ?? "",obj?.home3 ?? "",obj?.home4 ?? "",obj?.homeScore ?? ""]
-        awayScores = ["Away",obj?.away1 ?? "",obj?.away2 ?? "",obj?.away3 ?? "",obj?.away4 ?? "",obj?.awayScore ?? ""]
+        homeScores = ["Home".localized,obj?.home1 ?? "",obj?.home2 ?? "",obj?.home3 ?? "",obj?.home4 ?? "",obj?.homeScore ?? ""]
+        awayScores = ["Away".localized,obj?.away1 ?? "",obj?.away2 ?? "",obj?.away3 ?? "",obj?.away4 ?? "",obj?.awayScore ?? ""]
         tableViewQuarters.reloadData()
         quartersStack.isHidden = false
         

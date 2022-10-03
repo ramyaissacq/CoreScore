@@ -17,7 +17,7 @@ class AnalysisViewController: UIViewController {
     @IBOutlet weak var emptyView: UIView!
     var headerSizes = [CGFloat]()
     var viewModel = AnalysisViewModel()
-    var sectionHeaders = ["Head to head","Home Team Recent Matches","Away Team Recent Matches","Home Team Odds","Away Team Odds"]
+    var sectionHeaders = ["Head to head".localized,"Home Team Recent Matches".localized,"Away Team Recent Matches".localized,"Home Team Odds".localized,"Away Team Odds".localized]
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -33,7 +33,7 @@ class AnalysisViewController: UIViewController {
         viewModel.delegate = self
         
         if HomeCategoryViewController.selectedSport == .basketball{
-            sectionHeaders = ["Head to head","Home Team Recent Matches","Away Team Recent Matches"]
+            sectionHeaders = ["Head to head".localized,"Home Team Recent Matches".localized,"Away Team Recent Matches".localized]
             viewModel.fetchBasketballAnalysisData()
         }
         else{

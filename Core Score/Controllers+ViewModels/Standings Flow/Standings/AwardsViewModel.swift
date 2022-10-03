@@ -191,10 +191,10 @@ class AwardsViewModel{
     func getPlayerPointsByIndex(index:Int)->[String]{
         var points = [String]()
         let obj = playerStandings?[index]
-        points.append("Home Penalty : \(obj?.homePenalty ?? 0)")
-        points.append("Away Penalty : \(obj?.awayPenalty ?? 0)")
-        points.append("Match Number : \(obj?.matchNum ?? 0)")
-        points.append("Sub Number : \(obj?.subNum ?? 0)")
+        points.append("\("Home Penalty".localized) : \(obj?.homePenalty ?? 0)")
+        points.append("\("Away Penalty".localized) : \(obj?.awayPenalty ?? 0)")
+                      points.append("\("Match Number".localized) : \(obj?.matchNum ?? 0)")
+        points.append("\("Sub Number".localized) : \(obj?.subNum ?? 0)")
         return points
     }
     

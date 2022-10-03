@@ -38,7 +38,7 @@ class HomeVieModel{
     var scoreResponse:ScoresResponse?
     var pastDates = getRecentDates(isPast: true, limit: 10)
     var futureDates = getRecentDates(isPast: false, limit: 10)
-    var todayCategories = ["ALL","LIVE","SOON","FT"]
+    var todayCategories = ["ALL".localized,"LIVE".localized,"SOON".localized,"FT".localized]
     //,"OTHER"
     var categories = [String]()
     
