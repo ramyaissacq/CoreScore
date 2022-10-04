@@ -6,6 +6,7 @@ import ProgressHUD
 import CoreLocation
 import UserNotifications
 import MOLH
+import StoreKit
 
 class Utility: NSObject {
     
@@ -399,5 +400,56 @@ class Utility: NSObject {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = homeVC
     }
+    
+    class func shareAction(text:String?,url:NSURL?,image:UIImage?,vc:UIViewController){
+        
+        var items = [Any]()
+        if text != nil{
+            items.append(text!)
+        }
+        if url != nil{
+            items.append(url!)
+        }
+        if image != nil{
+            items.append(image!)
+        }
+        
+           let activityViewController : UIActivityViewController = UIActivityViewController(
+               activityItems: items, applicationActivities: nil)
+           
+          
+           
+           // Pre-configuring activity items
+           activityViewController.activityItemsConfiguration = [
+           UIActivity.ActivityType.message
+           ] as? UIActivityItemsConfigurationReading
+           
+           // Anything you want to exclude
+           activityViewController.excludedActivityTypes = [
+               UIActivity.ActivityType.postToWeibo,
+               UIActivity.ActivityType.print,
+               UIActivity.ActivityType.assignToContact,
+               UIActivity.ActivityType.saveToCameraRoll,
+               UIActivity.ActivityType.addToReadingList,
+               UIActivity.ActivityType.postToFlickr,
+               UIActivity.ActivityType.postToVimeo,
+               UIActivity.ActivityType.postToTencentWeibo,
+               UIActivity.ActivityType.postToFacebook
+           ]
+           
+           activityViewController.isModalInPresentation = true
+           vc.present(activityViewController, animated: true, completion: nil)
+    }
+    
+   class func rateApp(id : String) {
+        guard let url = URL(string : "itms-apps://itunes.apple.com/app/id\(id)?mt=8&action=write-review") else { return }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+   
     
 }

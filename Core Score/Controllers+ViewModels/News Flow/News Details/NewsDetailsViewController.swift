@@ -24,7 +24,7 @@ class NewsDetailsViewController: BaseViewController {
     var newsID:Int?
     var viewModel = NewsDetailsViewModel()
     var cellWidths = [CGFloat]()
-    
+    var separator = ","
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
@@ -33,6 +33,9 @@ class NewsDetailsViewController: BaseViewController {
     }
     
     func initialSettings(){
+        if Utility.getCurrentLang() == "cn"{
+            separator = "，"
+        }
         setBackButton()
 //        let shareBtn = getButton(image: UIImage(named: "share")!)
 //        shareBtn.addTarget(self, action: #selector(actionShare), for: .touchUpInside)
@@ -61,7 +64,7 @@ class NewsDetailsViewController: BaseViewController {
         lblTitle.text = viewModel.newsDetails?.title?.htmlToString
         imgNews.setImage(with: viewModel.newsDetails?.path, placeholder: Utility.getPlaceHolder())
         lblDescription.text = viewModel.newsDetails?.description?.htmlToString
-        for m in viewModel.newsDetails?.keywords?.components(separatedBy: ",") ?? []{
+        for m in viewModel.newsDetails?.keywords?.components(separatedBy: separator) ?? []{
             let w = m.width(forHeight: 19, font: UIFont(name: "Poppins-Regular", size: 13)!) + 20
             //m.size(withAttributes:[.font: UIFont(name: "Poppins-Regular", size: 13)!])
             cellWidths.append(w)
@@ -90,12 +93,12 @@ extension NewsDetailsViewController:NewsDetailsViewModelDelegates{
 
 extension NewsDetailsViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.newsDetails?.keywords?.components(separatedBy: ",").count ?? 0
+        viewModel.newsDetails?.keywords?.components(separatedBy: separator).count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TypesCollectionViewCell", for: indexPath) as! TypesCollectionViewCell
-        let arr = viewModel.newsDetails?.keywords?.components(separatedBy: ",")
+        let arr = viewModel.newsDetails?.keywords?.components(separatedBy: separator)
         cell.lblTitle.text = arr?[indexPath.row]
         return cell
         

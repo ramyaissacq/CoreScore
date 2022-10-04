@@ -277,6 +277,14 @@
 		AD162BA428E5D43A003753EA /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		AD162BA728E5D79A003753EA /* PagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesViewController.swift; sourceTree = "<group>"; };
 		AD1BC39A28E326F60040FE25 /* prize.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = prize.json; sourceTree = "<group>"; };
+		AD23785D28EC5C2C00101D79 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Dialogs.strings; sourceTree = "<group>"; };
+		AD23785E28EC5C2C00101D79 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Awards.strings; sourceTree = "<group>"; };
+		AD23785F28EC5C2C00101D79 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Home.strings; sourceTree = "<group>"; };
+		AD23786028EC5C2C00101D79 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Main.strings; sourceTree = "<group>"; };
+		AD23786128EC5C2C00101D79 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/News.strings; sourceTree = "<group>"; };
+		AD23786228EC5C2C00101D79 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/SideMenu.strings; sourceTree = "<group>"; };
+		AD23786328EC5C2C00101D79 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		AD23786428EC5C2C00101D79 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD3F2FA228EB0BF2007E3253 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD3F2FA428EB0BF8007E3253 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AD3F2FA528EB0BFC007E3253 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1832,6 +1840,7 @@
 				"zh-Hans",
 				id,
 				vi,
+				th,
 			);
 			mainGroup = ADFA528428E2F1DA004E81BF;
 			productRefGroup = ADFA528E28E2F1DA004E81BF /* Products */;
@@ -2251,6 +2260,7 @@
 				AD3F2FA428EB0BF8007E3253 /* zh-Hans */,
 				AD3F2FA528EB0BFC007E3253 /* id */,
 				AD3F2FA628EB0BFE007E3253 /* vi */,
+				AD23786428EC5C2C00101D79 /* th */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -2262,6 +2272,7 @@
 				AD64377628EAED09002DC7D9 /* zh-Hans */,
 				AD64377828EAED0B002DC7D9 /* id */,
 				AD64377A28EAED0D002DC7D9 /* vi */,
+				AD23785F28EC5C2C00101D79 /* th */,
 			);
 			name = Home.storyboard;
 			sourceTree = "<group>";
@@ -2273,6 +2284,7 @@
 				AD64377F28EAEEA5002DC7D9 /* zh-Hans */,
 				AD64378128EAEF14002DC7D9 /* id */,
 				AD64378328EAEF18002DC7D9 /* vi */,
+				AD23785E28EC5C2C00101D79 /* th */,
 			);
 			name = Awards.storyboard;
 			sourceTree = "<group>";
@@ -2284,6 +2296,7 @@
 				AD64378828EAEF97002DC7D9 /* zh-Hans */,
 				AD64378A28EAEFC9002DC7D9 /* id */,
 				AD64378C28EAEFFB002DC7D9 /* vi */,
+				AD23786128EC5C2C00101D79 /* th */,
 			);
 			name = News.storyboard;
 			sourceTree = "<group>";
@@ -2295,6 +2308,7 @@
 				AD64379128EAF0F0002DC7D9 /* zh-Hans */,
 				AD64379328EAF34F002DC7D9 /* id */,
 				AD64379528EAF37F002DC7D9 /* vi */,
+				AD23786228EC5C2C00101D79 /* th */,
 			);
 			name = SideMenu.storyboard;
 			sourceTree = "<group>";
@@ -2306,6 +2320,7 @@
 				AD64376B28EAC7E9002DC7D9 /* zh-Hans */,
 				AD64376E28EAC828002DC7D9 /* id */,
 				AD64377128EAC834002DC7D9 /* vi */,
+				AD23786328EC5C2C00101D79 /* th */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2317,6 +2332,7 @@
 				AD64379B28EAFBF9002DC7D9 /* zh-Hans */,
 				AD64379D28EAFC08002DC7D9 /* id */,
 				AD64379F28EAFC0B002DC7D9 /* vi */,
+				AD23785D28EC5C2C00101D79 /* th */,
 			);
 			name = Dialogs.storyboard;
 			sourceTree = "<group>";
@@ -2328,6 +2344,7 @@
 				AD64376A28EAC7E9002DC7D9 /* zh-Hans */,
 				AD64376D28EAC828002DC7D9 /* id */,
 				AD64377028EAC834002DC7D9 /* vi */,
+				AD23786028EC5C2C00101D79 /* th */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2457,8 +2474,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9C9FU36V4K;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2469,15 +2486,16 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.qooglobal.CoreScore;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.corescore.football.live.score;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = CoreScoreDistributionNew;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2490,8 +2508,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9C9FU36V4K;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2502,15 +2520,16 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.qooglobal.CoreScore;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.corescore.football.live.score;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = CoreScoreDistributionNew;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

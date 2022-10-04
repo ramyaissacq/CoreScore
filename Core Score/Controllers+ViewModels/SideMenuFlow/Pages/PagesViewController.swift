@@ -38,7 +38,8 @@ class PagesViewController: BaseViewController {
         case .terms:
             lblHeader.text = "Terms & Conditions".localized
         case .privacy:
-            lblHeader.text = "Privacy Policy".localized
+            lblHeader.text = "Privacy Policy"
+            
             
         }
     }

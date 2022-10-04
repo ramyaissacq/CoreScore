@@ -119,10 +119,42 @@ class LeagueViewController: UIViewController {
         tableViewRareStandings.reloadData()
         tableViewLeague.reloadData()
         imgLogo.setImage(with: viewModel.leaguDetails?.leagueData01?.first?.leagueLogo, placeholder: Utility.getPlaceHolder())
-        lblRule.text = viewModel.leaguDetails?.leagueData04?.first?.ruleEn
-        if viewModel.leaguDetails?.leagueData04?.first?.ruleEn?.trim().count ?? 0 == 0{
-            ruleView.isHidden = true
+        switch Utility.getCurrentLang(){
+        case "en":
+            lblRule.text = viewModel.leaguDetails?.leagueData04?.first?.ruleEn
+            if viewModel.leaguDetails?.leagueData04?.first?.ruleEn?.trim().count ?? 0 == 0{
+                ruleView.isHidden = true
+            }
+            
+        case "cn":
+            lblRule.text = viewModel.leaguDetails?.leagueData04?.first?.ruleCn
+            if viewModel.leaguDetails?.leagueData04?.first?.ruleCn?.trim().count ?? 0 == 0{
+                ruleView.isHidden = true
+            }
+            
+        case "id":
+            lblRule.text = viewModel.leaguDetails?.leagueData04?.first?.ruleId
+            if viewModel.leaguDetails?.leagueData04?.first?.ruleId?.trim().count ?? 0 == 0{
+                ruleView.isHidden = true
+            }
+            
+        case "vi":
+            lblRule.text = viewModel.leaguDetails?.leagueData04?.first?.ruleVi
+            if viewModel.leaguDetails?.leagueData04?.first?.ruleVi?.trim().count ?? 0 == 0{
+                ruleView.isHidden = true
+            }
+        case "th":
+            lblRule.text = viewModel.leaguDetails?.leagueData04?.first?.ruleTh
+            if viewModel.leaguDetails?.leagueData04?.first?.ruleTh?.trim().count ?? 0 == 0{
+                ruleView.isHidden = true
+            }
+           
+        default:
+            break
+        
+        
         }
+        
         if viewModel.isNormalStanding{
             tableViewRareStandings.isHidden = true
             if viewModel.normalStandings?.totalStandings?.isEmpty ?? true{

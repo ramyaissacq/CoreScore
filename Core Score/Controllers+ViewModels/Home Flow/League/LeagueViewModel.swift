@@ -78,26 +78,98 @@ class LeagueViewModel{
     
     func getFootballLeagueValues()->[String]{
         var values = [String]()
-        values.append(leaguDetails?.leagueData01?.first?.nameEn ?? "")
-        values.append(leaguDetails?.leagueData01?.first?.nameEnShort ?? "")
+        var leagueName = ""
+        var shortName = ""
+        var subName  = ""
+        var country = ""
+        switch Utility.getCurrentLang(){
+        case "en":
+        leagueName = leaguDetails?.leagueData01?.first?.nameEn ?? ""
+        shortName = leaguDetails?.leagueData01?.first?.nameEnShort ?? ""
+        subName  = leaguDetails?.leagueData02?.first?.subNameEn ?? ""
+        country = leaguDetails?.leagueData01?.first?.countryEn ?? ""
+        case "cn":
+            leagueName = leaguDetails?.leagueData01?.first?.nameCn ?? ""
+            shortName = leaguDetails?.leagueData01?.first?.nameCnShort ?? ""
+            subName  = leaguDetails?.leagueData02?.first?.subNameEn ?? ""
+            country = leaguDetails?.leagueData01?.first?.countryCn ?? ""
+            
+        case "id":
+            leagueName = leaguDetails?.leagueData01?.first?.nameId ?? ""
+            shortName = leaguDetails?.leagueData01?.first?.nameIdShort ?? ""
+            subName  = leaguDetails?.leagueData02?.first?.subNameId ?? ""
+            country = leaguDetails?.leagueData01?.first?.countryId ?? ""
+            
+        case "vi":
+            leagueName = leaguDetails?.leagueData01?.first?.nameVi ?? ""
+            shortName = leaguDetails?.leagueData01?.first?.nameViShort ?? ""
+            subName  = leaguDetails?.leagueData02?.first?.subNameVi ?? ""
+            country = leaguDetails?.leagueData01?.first?.countryNameVi ?? ""
+            
+        case "th":
+            leagueName = leaguDetails?.leagueData01?.first?.nameTh ?? ""
+            shortName = leaguDetails?.leagueData01?.first?.nameThShort ?? ""
+            subName  = leaguDetails?.leagueData02?.first?.subNameTh ?? ""
+            country = leaguDetails?.leagueData01?.first?.countryNameTh ?? ""
+           
+        default:
+            break
+        
+        
+        }
+        values.append(leagueName)
+        values.append(shortName)
         values.append(leaguDetails?.leagueData01?.first?.type ?? "")
-        values.append(leaguDetails?.leagueData02?.first?.subNameEn ?? "")
+        values.append(subName)
         values.append(leaguDetails?.leagueData02?.first?.totalRound ?? "")
         values.append(leaguDetails?.leagueData01?.first?.currRound ?? "")
         values.append(leaguDetails?.leagueData01?.first?.currSeason ?? "")
-        values.append(leaguDetails?.leagueData01?.first?.countryEn ?? "")
+        values.append(country)
         return values
     }
     func getBasketballLeagueValues()->[String]{
         var values = [String]()
-        values.append(basketballLeague?.leagueData?.first?.nameEn ?? "")
-        values.append(basketballLeague?.leagueData?.first?.nameEnShort ?? "")
+        var leagueName = ""
+        var shortName = ""
+        var country = ""
+        switch Utility.getCurrentLang(){
+        case "en":
+            leagueName = basketballLeague?.leagueData?.first?.nameEn ?? ""
+          shortName = basketballLeague?.leagueData?.first?.nameEnShort ?? ""
+         country = basketballLeague?.leagueData?.first?.countryEn ?? ""
+       
+        case "cn":
+            leagueName = basketballLeague?.leagueData?.first?.nameCn ?? ""
+          shortName = basketballLeague?.leagueData?.first?.nameCnShort ?? ""
+         country = basketballLeague?.leagueData?.first?.countryCn ?? ""
+           
+            
+        case "id":
+            leagueName = basketballLeague?.leagueData?.first?.nameId ?? ""
+          shortName = basketballLeague?.leagueData?.first?.nameIdShort ?? ""
+         country = basketballLeague?.leagueData?.first?.countryId ?? ""
+           
+            
+        case "vi":
+            leagueName = basketballLeague?.leagueData?.first?.nameVi ?? ""
+          shortName = basketballLeague?.leagueData?.first?.nameViShort ?? ""
+         country = basketballLeague?.leagueData?.first?.countryNameVi ?? ""
+            // No thai version
+           
+        default:
+            leagueName = basketballLeague?.leagueData?.first?.nameEn ?? ""
+          shortName = basketballLeague?.leagueData?.first?.nameEnShort ?? ""
+         country = basketballLeague?.leagueData?.first?.countryEn ?? ""
+        
+        }
+        values.append(leagueName)
+        values.append(shortName)
         values.append(basketballLeague?.leagueData?.first?.leagueType ?? "")
         values.append("League".localized)
         values.append("")
         values.append("")
         values.append(basketballLeague?.leagueData?.first?.currentSeason ?? "")
-        values.append(basketballLeague?.leagueData?.first?.countryEn ?? "")
+        values.append(country)
         return values
     }
     
@@ -109,7 +181,19 @@ class LeagueViewModel{
         var team = ""
         if let teamID = obj?.teamId{
             let teamObj = normalStandings?.teamInfo?.filter{$0.teamId == teamID}.first
-            team = (teamObj?.nameEn ?? "") + "," + (teamObj?.flag ?? "")
+            var teamName = ""
+            switch Utility.getCurrentLang(){
+            case "en":
+               teamName = teamObj?.nameEn ?? ""
+            case "cn":
+                teamName = teamObj?.nameChs ?? ""
+            
+            default:
+                teamName = teamObj?.nameEn ?? ""
+            
+            
+            }
+            team = (teamName) + "," + (teamObj?.flag ?? "")
         }
         standings.append(team)
         standings.append("\(obj?.totalCount ?? 0)")
@@ -172,9 +256,21 @@ class LeagueViewModel{
     //Methods for handling rare standing object display
     func getRareStandingRowByIndex(section:Int,row:Int)->[String]{
         var standings = [String]()
+        var teamName = ""
         let obj = leaguStanding?.list?.first?.score?.first?.groupScore?[section].scoreItems?[row]
+        switch Utility.getCurrentLang(){
+        case "en":
+            teamName = obj?.teamNameEn ?? ""
+        case "cn":
+            teamName = obj?.teamNameChs ?? ""
+       
+        default:
+            teamName = obj?.teamNameEn ?? ""
+        
+        }
+        
         standings.append(obj?.rank ?? "0")
-        standings.append(obj?.teamNameEn ?? "")
+        standings.append(teamName)
         standings.append(obj?.totalCount ?? "0")
         standings.append(obj?.winCount ?? "0")
         standings.append(obj?.drawCount ?? "0")
@@ -188,6 +284,9 @@ class LeagueViewModel{
     
     func getGroupName(section:Int)->String?{
         let obj = leaguStanding?.list?.first?.score?.first?.groupScore?[section]
+        if Utility.getCurrentLang() == "cn"{
+            return obj?.groupCn
+        }
         return obj?.groupEn
         
     }

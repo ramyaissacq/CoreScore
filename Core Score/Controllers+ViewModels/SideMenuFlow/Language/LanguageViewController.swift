@@ -12,7 +12,7 @@ class LanguageViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var languages = ["English","中文","Bahasa Indonesia","Việt Nam"]
+    var languages = ["English","中文","Bahasa Indonesia","Việt Nam","ไทย"]
     var lang = MOLHLanguage.currentAppleLanguage()
     
     override func viewDidLoad() {
@@ -36,6 +36,8 @@ class LanguageViewController: BaseViewController {
             index = 2
         case "vi":
             index = 3
+        case "th":
+            index = 4
         default:
             break
             
@@ -54,6 +56,8 @@ class LanguageViewController: BaseViewController {
             lang = "id"
         case 3:
             lang = "vi"
+        case 4:
+            lang = "th"
             
         default:
             break

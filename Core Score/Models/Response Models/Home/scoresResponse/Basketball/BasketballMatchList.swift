@@ -72,17 +72,17 @@ struct BasketballMatchList {
 	let leagueNameShortVi: String?
 	let leagueNameShortTh: String?
 	let homeLogo: String?
-	let homeTeamNameCn: String?
+    var homeTeamNameCn: String?
 	let homeTeamNameEn: String?
-	let homeTeamNameId: String?
-	let homeTeamNameVi: String?
-	let homeTeamNameTh: String?
+    var homeTeamNameId: String?
+	var homeTeamNameVi: String?
+    var homeTeamNameTh: String?
 	let awayLogo: String?
-	let awayTeamNameCn: String?
+    var awayTeamNameCn: String?
 	let awayTeamNameEn: String?
-	let awayTeamNameId: String?
-	let awayTeamNameVi: String?
-	let awayTeamNameTh: String?
+    var awayTeamNameId: String?
+    var awayTeamNameVi: String?
+    var awayTeamNameTh: String?
 	let havLiveText: Bool?
 	let havLiveTextEn: Bool?
 	let havLineup: Bool?
@@ -195,6 +195,32 @@ struct BasketballMatchList {
 		havLiveAnchorId = json["havLiveAnchorId"].stringValue
 		havLiveAnchorLocale = json["havLiveAnchorLocale"].stringValue
 		odds = BasketOdds(json["odds"])
+        if homeTeamNameCn?.count == 0{
+            homeTeamNameCn = json["homeTeamCn"].stringValue
+        }
+        if homeTeamNameId?.count == 0{
+            homeTeamNameId = json["homeTeamId"].stringValue
+        }
+        if homeTeamNameVi?.count == 0{
+            homeTeamNameVi = json["homeTeamVi"].stringValue
+        }
+        if homeTeamNameTh?.count == 0{
+            homeTeamNameTh = json["homeTeamTh"].stringValue
+        }
+        
+        if awayTeamNameCn?.count == 0{
+            awayTeamNameCn = json["awayTeamCn"].stringValue
+        }
+        if awayTeamNameId?.count == 0{
+            awayTeamNameId = json["awayTeamId"].stringValue
+        }
+        if awayTeamNameVi?.count == 0{
+            awayTeamNameVi = json["awayTeamVi"].stringValue
+        }
+        if awayTeamNameTh?.count == 0{
+            awayTeamNameTh = json["awayTeamTh"].stringValue
+            
+        }
 	}
     
     func toDictionary() -> [String:Any]{

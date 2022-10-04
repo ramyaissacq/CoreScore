@@ -1114,10 +1114,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="621.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocr-y8-4kf">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="314"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="303"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xht-7o-FAi">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="303"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BXw-rk-oWG">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
@@ -1210,8 +1210,8 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="psB-s8-PEM">
-                                                        <rect key="frame" x="0.0" y="313" width="414" height="1"/>
+                                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="psB-s8-PEM">
+                                                        <rect key="frame" x="0.0" y="303" width="414" height="1"/>
                                                         <subviews>
                                                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rFe-MF-WFK">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
@@ -1352,6 +1352,9 @@
             <point key="canvasLocation" x="3257.971014492754" y="-107.47767857142857"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="FD4-fB-H2b"/>
+    </designables>
     <resources>
         <image name="basketball" width="20.5" height="20"/>
         <image name="downArrowRed" width="16.5" height="16"/>

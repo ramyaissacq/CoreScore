@@ -174,14 +174,69 @@ struct MatchList {
         awayLogo = obj?.awayLogo
         havOdds = nil
         odds = nil
-        leagueName = obj?.leagueNameEn
-        leagueNameShort = obj?.leagueNameShortEn
-        subLeagueName = obj?.subLeagueEn
-        homeName = obj?.homeNameEn
-        awayName = obj?.awayNameEn
-        homeRank = obj?.homeRankEn
-        awayRank = obj?.awayRankEn
-        round = obj?.roundEn
+        switch Utility.getCurrentLang(){
+        case "en":
+            leagueName = obj?.leagueNameEn
+            leagueNameShort = obj?.leagueNameShortEn
+            subLeagueName = obj?.subLeagueEn
+            homeName = obj?.homeNameEn
+            awayName = obj?.awayNameEn
+            homeRank = obj?.homeRankEn
+            awayRank = obj?.awayRankEn
+            round = obj?.roundEn
+           
+        case "cn":
+            leagueName = obj?.leagueNameCn
+            leagueNameShort = obj?.leagueNameShortCn
+            subLeagueName = obj?.subLeagueCn
+            homeName = obj?.homeNameCn
+            awayName = obj?.awayNameCn
+            homeRank = obj?.homeRankCn
+            awayRank = obj?.awayRankCn
+            round = obj?.roundCn
+            
+        case "id":
+            leagueName = obj?.leagueNameId
+            leagueNameShort = obj?.leagueNameShortId
+            subLeagueName = obj?.subLeagueId
+            homeName = obj?.homeNameId
+            awayName = obj?.awayNameId
+            homeRank = obj?.homeRankEn
+            awayRank = obj?.awayRankEn
+            round = obj?.roundEn
+            
+        case "vi":
+            leagueName = obj?.leagueNameVi
+            leagueNameShort = obj?.leagueNameShortVi
+            subLeagueName = obj?.subLeagueEn
+            homeName = obj?.homeNameVi
+            awayName = obj?.awayNameVi
+            homeRank = obj?.homeRankEn
+            awayRank = obj?.awayRankEn
+            round = obj?.roundEn
+        case "th":
+            leagueName = obj?.leagueNameTh
+            leagueNameShort = obj?.leagueNameShortTh
+            subLeagueName = obj?.subLeagueEn
+            homeName = obj?.homeNameTh
+            awayName = obj?.awayNameTh
+            homeRank = obj?.homeRankEn
+            awayRank = obj?.awayRankEn
+            round = obj?.roundEn
+            
+        default:
+            leagueName = obj?.leagueNameEn
+            leagueNameShort = obj?.leagueNameShortEn
+            subLeagueName = obj?.subLeagueEn
+            homeName = obj?.homeNameEn
+            awayName = obj?.awayNameEn
+            homeRank = obj?.homeRankEn
+            awayRank = obj?.awayRankEn
+            round = obj?.roundEn
+        
+        
+        }
+        
         location = obj?.locationEn
         weather = obj?.weatherEn
         explain = obj?.explainEn

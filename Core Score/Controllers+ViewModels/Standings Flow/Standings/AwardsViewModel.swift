@@ -86,8 +86,20 @@ class AwardsViewModel{
     func getRareStandingRowByIndex(section:Int,row:Int)->[String]{
         var standings = [String]()
         let obj = leaguStanding?.list?.first?.score?.first?.groupScore?[section].scoreItems?[row]
+        var teamName = ""
+        switch Utility.getCurrentLang(){
+        case "en":
+           teamName = obj?.teamNameEn ?? ""
+        case "cn":
+            teamName = obj?.teamNameChs ?? ""
+        
+        default:
+            teamName = obj?.teamNameEn ?? ""
+        
+        
+        }
         standings.append(obj?.rank ?? "0")
-        standings.append(obj?.teamNameEn ?? "")
+        standings.append(teamName)
         standings.append(obj?.totalCount ?? "0")
         standings.append(obj?.winCount ?? "0")
         standings.append(obj?.drawCount ?? "0")
@@ -114,7 +126,20 @@ class AwardsViewModel{
         var team = ""
         if let teamID = obj?.teamId{
             let teamObj = normalStandings?.teamInfo?.filter{$0.teamId == teamID}.first
-            team = (teamObj?.nameEn ?? "") + "," + (teamObj?.flag ?? "")
+            var teamName = ""
+            switch Utility.getCurrentLang(){
+            case "en":
+               teamName = teamObj?.nameEn ?? ""
+            case "cn":
+                teamName = teamObj?.nameChs ?? ""
+            
+            default:
+                teamName = teamObj?.nameEn ?? ""
+            
+            
+            }
+            
+            team = (teamName) + "," + (teamObj?.flag ?? "")
         }
         print(team)
         standings.append(team)
@@ -179,9 +204,25 @@ class AwardsViewModel{
     func getPlayerRowByIndex(index:Int)->[String]{
         var standings = [String]()
         let obj = playerStandings?[index]
+        var teamName = ""
+        var playerName = ""
+        switch Utility.getCurrentLang(){
+        case "en":
+           teamName = obj?.teamNameEn ?? ""
+            playerName = obj?.playerNameEn ?? ""
+        case "cn":
+            teamName = obj?.teamNameChs ?? ""
+            playerName = obj?.playerNameChs ?? ""
+        
+        default:
+            teamName = obj?.teamNameEn ?? ""
+            playerName = obj?.playerNameEn ?? ""
+        
+        
+        }
         standings.append("\(index+1)")
-        standings.append(obj?.teamNameEn ?? "")
-        standings.append(obj?.playerNameEn ?? "")
+        standings.append(teamName)
+        standings.append(playerName)
         standings.append("\(obj?.goals ?? 0)")
         standings.append("\(obj?.homeGoals ?? 0)")
         standings.append("\(obj?.awayGoals ?? 0)")

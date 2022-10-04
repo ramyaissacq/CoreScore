@@ -199,9 +199,36 @@ class ScoresView: UIView {
         odds1Stack.isHidden = false
         odds2Stack.isHidden = false
         indexViewYellow.isHidden = false
-        lblName.text = obj?.leagueNameEn
-        lblHomeName.text = obj?.homeTeamEn
-        lblAwayName.text = obj?.awayTeamEn
+        switch Utility.getCurrentLang(){
+        case "en":
+            lblName.text = obj?.leagueNameEn
+            lblHomeName.text = obj?.homeTeamEn
+            lblAwayName.text = obj?.awayTeamEn
+        case "cn":
+            lblName.text = obj?.leagueNameCn
+            lblHomeName.text = obj?.homeTeamNameCn
+            lblAwayName.text = obj?.awayTeamNameCn
+        case "id":
+            lblName.text = obj?.leagueNameId
+            lblHomeName.text = obj?.homeTeamNameId
+            lblAwayName.text = obj?.awayTeamNameId
+        case "vi":
+            lblName.text = obj?.leagueNameVi
+            lblHomeName.text = obj?.homeTeamNameVi
+            lblAwayName.text = obj?.awayTeamNameVi
+            
+        case "th":
+            lblName.text = obj?.leagueNameTh
+            lblHomeName.text = obj?.homeTeamNameTh
+            lblAwayName.text = obj?.awayTeamNameTh
+        default:
+            lblName.text = obj?.leagueNameEn
+            lblHomeName.text = obj?.homeTeamEn
+            lblAwayName.text = obj?.awayTeamEn
+        
+        
+        }
+        
         if obj?.matchState == 0{
             lblScore.text = "SOON".localized
         }

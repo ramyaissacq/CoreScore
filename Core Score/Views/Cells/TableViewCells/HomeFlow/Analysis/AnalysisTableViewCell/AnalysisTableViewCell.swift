@@ -48,9 +48,35 @@ class AnalysisTableViewCell: UITableViewCell {
     func configureCell(obj:BasketballAnalysisData?){
         fixedLblCorner.text = "Total Points".localized
         fixedLblHT.text = "Half".localized
-        lblLeague.text = obj?.leagueNameEn
-        lblHome.text = obj?.homeTeamEn
-        lblAway.text = obj?.awayTeamEn
+        
+        switch Utility.getCurrentLang(){
+        case "en":
+            lblLeague.text = obj?.leagueNameEn
+            lblHome.text = obj?.homeTeamEn
+            lblAway.text = obj?.awayTeamEn
+        case "cn":
+            lblLeague.text = obj?.leagueNameCn
+            lblHome.text = obj?.homeTeamNameCn
+            lblAway.text = obj?.awayTeamNameCn
+        case "id":
+            lblLeague.text = obj?.leagueNameId
+            lblHome.text = obj?.homeTeamNameId
+            lblAway.text = obj?.awayTeamNameId
+        case "vi":
+            lblLeague.text = obj?.leagueNameVi
+            lblHome.text = obj?.homeTeamNameVi
+            lblAway.text = obj?.awayTeamNameVi
+        case "th":
+            lblLeague.text = obj?.leagueNameTh
+            lblHome.text = obj?.homeTeamNameTh
+            lblAway.text = obj?.awayTeamNameTh
+        default:
+            lblLeague.text = obj?.leagueNameEn
+            lblHome.text = obj?.homeTeamEn
+            lblAway.text = obj?.awayTeamEn
+        
+        
+        }
         lblScore.text = "\(obj?.homeScore ?? 0) : \(obj?.awayScore ?? 0)"
         lblCorner.text = String(obj?.total ?? 0)
         lblHT.text = "\(obj?.homeHalfScore ?? 0) : \(obj?.awayHalfScore ?? 0)"

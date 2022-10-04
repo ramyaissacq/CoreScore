@@ -12,7 +12,27 @@ extension AwardsViewController:AwardsViewModeldelegate{
     func didFinishTeamStandingsFetch() {
         imgLogo.setImage(with: viewModel.leaguDetails?.leagueData01?.first?.leagueLogo, placeholder: Utility.getPlaceHolder())
         if selectedTopTitleIndex == 0{
-            lblSelectedLeague.text = (viewModel.leaguDetails?.leagueData01?.first?.nameEn ?? "") + " " + (viewModel.leaguDetails?.leagueData01?.first?.currSeason ?? "")
+            switch Utility.getCurrentLang(){
+            case "en":
+                lblSelectedLeague.text = (viewModel.leaguDetails?.leagueData01?.first?.nameEn ?? "") + " " + (viewModel.leaguDetails?.leagueData01?.first?.currSeason ?? "")
+                
+            case "cn":
+                lblSelectedLeague.text = (viewModel.leaguDetails?.leagueData01?.first?.nameCn ?? "") + " " + (viewModel.leaguDetails?.leagueData01?.first?.currSeason ?? "")
+                
+            case "id":
+                lblSelectedLeague.text = (viewModel.leaguDetails?.leagueData01?.first?.nameId ?? "") + " " + (viewModel.leaguDetails?.leagueData01?.first?.currSeason ?? "")
+                
+            case "vi":
+                lblSelectedLeague.text = (viewModel.leaguDetails?.leagueData01?.first?.nameVi ?? "") + " " + (viewModel.leaguDetails?.leagueData01?.first?.currSeason ?? "")
+            case "th":
+                lblSelectedLeague.text = (viewModel.leaguDetails?.leagueData01?.first?.nameTh ?? "") + " " + (viewModel.leaguDetails?.leagueData01?.first?.currSeason ?? "")
+               
+            default:
+                break
+            
+            
+            }
+            
         imgLogo.isHidden = false
             setupViews()
           

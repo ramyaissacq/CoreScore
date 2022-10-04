@@ -67,6 +67,39 @@ class BriefingViewController: UIViewController {
     }
     
     func setupBasketballBriefing(){
+        switch Utility.getCurrentLang(){
+        case "en":
+            lblBriefing.text = viewModel.basketballBriefing?.analyseEn?.htmlToString
+            lblConfidence.text = viewModel.basketballBriefing?.confidenceEn?.htmlToString
+            lblMatchTrack.text = viewModel.basketballBriefing?.headToHeadEn?.htmlToString
+            lblDescription.text = viewModel.basketballBriefing?.explainEn?.htmlToString
+        case "cn":
+            lblBriefing.text = viewModel.basketballBriefing?.analyseCn?.htmlToString
+            lblConfidence.text = viewModel.basketballBriefing?.confidenceCn?.htmlToString
+            lblMatchTrack.text = viewModel.basketballBriefing?.headToHeadCn?.htmlToString
+            lblDescription.text = viewModel.basketballBriefing?.explainCn?.htmlToString
+        case "id":
+            lblBriefing.text = viewModel.basketballBriefing?.analyseId?.htmlToString
+            lblConfidence.text = viewModel.basketballBriefing?.confidenceId?.htmlToString
+            lblMatchTrack.text = viewModel.basketballBriefing?.headToHeadId?.htmlToString
+            lblDescription.text = viewModel.basketballBriefing?.explainId?.htmlToString
+        case "vi":
+            lblBriefing.text = viewModel.basketballBriefing?.analyseVi?.htmlToString
+            lblConfidence.text = viewModel.basketballBriefing?.confidenceVi?.htmlToString
+            lblMatchTrack.text = viewModel.basketballBriefing?.headToHeadVi?.htmlToString
+            lblDescription.text = viewModel.basketballBriefing?.explainVi?.htmlToString
+        case "th":
+            lblBriefing.text = viewModel.basketballBriefing?.analyseTh?.htmlToString
+            lblConfidence.text = viewModel.basketballBriefing?.confidenceTh?.htmlToString
+            lblMatchTrack.text = viewModel.basketballBriefing?.headToHeadTh?.htmlToString
+            lblDescription.text = viewModel.basketballBriefing?.explainTh?.htmlToString
+            
+           
+        default:
+            break
+        
+        
+        }
         lblBriefing.text = viewModel.basketballBriefing?.analyseEn?.htmlToString
         lblConfidence.text = viewModel.basketballBriefing?.confidenceEn?.htmlToString
         lblMatchTrack.text = viewModel.basketballBriefing?.headToHeadEn?.htmlToString
@@ -99,7 +132,23 @@ extension BriefingViewController:BreifingViewModelDelegate{
     }
     
     func didFinishFetch() {
-        textView.attributedText = viewModel.briefingData?.recommendEn?.htmlToAttributedString
+        switch Utility.getCurrentLang(){
+        case "en":
+            textView.attributedText = viewModel.briefingData?.recommendEn?.htmlToAttributedString
+        case "cn":
+            textView.attributedText = viewModel.briefingData?.recommendCn?.htmlToAttributedString
+        case "id":
+            textView.attributedText = viewModel.briefingData?.recommendId?.htmlToAttributedString
+        case "vi":
+            textView.attributedText = viewModel.briefingData?.recommendVi?.htmlToAttributedString
+        case "th":
+            textView.attributedText = viewModel.briefingData?.recommendTh?.htmlToAttributedString
+        default:
+            break
+        
+        
+        }
+       
        // animationView.stop()
         emptyView.isHidden = true
     }

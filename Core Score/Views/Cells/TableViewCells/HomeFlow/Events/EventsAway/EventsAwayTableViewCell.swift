@@ -25,7 +25,24 @@ class EventsAwayTableViewCell: UITableViewCell {
     }
     
     func configureCell(index:Int,obj:Event?){
-        lblEvent.text = "\(obj?.nameEn ?? "") (\(EventsHomeTableViewCell.getType(kind: obj?.kind ?? 0)))"
+        var name = ""
+        switch Utility.getCurrentLang(){
+        case "en":
+            name = obj?.nameEn ?? ""
+        case "cn":
+            name = obj?.nameCn ?? ""
+        case "id":
+            name = obj?.nameId ?? ""
+        case "vi":
+            name = obj?.nameVi ?? ""
+        //No thai version available
+            
+        default:
+            name = obj?.nameEn ?? ""
+            
+        
+        }
+        lblEvent.text = "\(name) (\(EventsHomeTableViewCell.getType(kind: obj?.kind ?? 0)))"
         lblTime.text = obj?.time
         imgType.image = EventsHomeTableViewCell.getEventSectionImage(index: index)
     }
