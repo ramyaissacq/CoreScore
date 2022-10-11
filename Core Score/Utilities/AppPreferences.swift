@@ -13,6 +13,7 @@ class AppPreferences {
         case pinList = "pinList"
         case basketBallHighlights = "basketBallHighlights"
         case IsFirstRun = "IsFirstRun"
+        case popupFrequency = "popupFrequency"
         
         
     }
@@ -145,6 +146,21 @@ class AppPreferences {
     {
         let userDefaults = UserDefaults.standard
         let value = userDefaults.bool(forKey: Keys.IsFirstRun.rawValue)
+        
+        return value
+        
+    }
+    
+    class func setPopupFrequency(frequency: Int)
+    {
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(frequency, forKey: Keys.popupFrequency.rawValue)
+    }
+    
+    class func getPopupFrequency() -> Int
+    {
+        let userDefaults = UserDefaults.standard
+        let value = userDefaults.integer(forKey: Keys.popupFrequency.rawValue)
         
         return value
         

@@ -55,6 +55,7 @@ class HomeViewController: BaseViewController {
     var timerPinsAlert = Timer()
     var timerHighlightsRefresh = Timer()
     var isHighlights = false
+    static var urlDetails:UrlDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +103,7 @@ class HomeViewController: BaseViewController {
         //        Utility.scheduleLocalNotificationNow(time: 5, title: "Hon Kong Vs Myanmar", subTitle: "GOAL!!", body: "Scores - 3:1, C - 3:1, HT - 1:0")
         //        setupTimerForpinRefresh()
         //        setupTimerForPinAlert()
+        
         setupHilightsTimer()
         setupNavButtons()
         setupGestures()
@@ -374,6 +376,20 @@ class HomeViewController: BaseViewController {
             viewModel.getBasketballMatchDetails(id: m.matchId ?? 0)
         }
         
+    }
+    
+    
+   static func showPopup(){
+        let frequency = AppPreferences.getPopupFrequency()
+        let promptFrequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
+        if frequency < promptFrequency{
+            let title = HomeViewController.urlDetails?.promptTitle ?? ""
+            let message = HomeViewController.urlDetails?.promptMessage ?? ""
+            if title.count > 0{
+                Dialog.openSuccessDialog(buttonLabel: "OK".localized, title: title, msg: message, completed: {})
+                AppPreferences.setPopupFrequency(frequency: frequency+1)
+            }
+        }
     }
     
     //    func setupTimerForpinRefresh(){

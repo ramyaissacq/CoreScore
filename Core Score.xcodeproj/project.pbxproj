@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		088DE62F60FAFCC3BAC8E40A /* Pods_Core_ScoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 624707E1CFB810B04F1C397A /* Pods_Core_ScoreTests.framework */; };
 		A4E42E619B0820DBD9FF668C /* Pods_Core_Score_Core_ScoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3427AA8A0B54B39CA12D6FD /* Pods_Core_Score_Core_ScoreUITests.framework */; };
+		AD13C31A28F57FCB00E9F0FE /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD13C31928F57FCB00E9F0FE /* WebViewViewController.swift */; };
+		AD13C31E28F58ED100E9F0FE /* UrlDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD13C31C28F58ED000E9F0FE /* UrlDetails.swift */; };
+		AD13C31F28F58ED100E9F0FE /* UrlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD13C31D28F58ED100E9F0FE /* UrlData.swift */; };
 		AD162B9528E5B1FF003753EA /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD162B9328E5B1FF003753EA /* SideMenuTableViewCell.swift */; };
 		AD162B9628E5B1FF003753EA /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD162B9428E5B1FF003753EA /* SideMenuTableViewCell.xib */; };
 		AD162B9928E5B44C003753EA /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD162B9828E5B44C003753EA /* SideMenuViewController.swift */; };
@@ -269,6 +272,9 @@
 		2351B915B44B60B9AD5F6DD4 /* Pods_Core_Score.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_Score.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		624707E1CFB810B04F1C397A /* Pods_Core_ScoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_ScoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3427AA8A0B54B39CA12D6FD /* Pods_Core_Score_Core_ScoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_Score_Core_ScoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD13C31928F57FCB00E9F0FE /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		AD13C31C28F58ED000E9F0FE /* UrlDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlDetails.swift; sourceTree = "<group>"; };
+		AD13C31D28F58ED100E9F0FE /* UrlData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlData.swift; sourceTree = "<group>"; };
 		AD162B9328E5B1FF003753EA /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		AD162B9428E5B1FF003753EA /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
 		AD162B9828E5B44C003753EA /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -573,6 +579,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD13C31828F57FAF00E9F0FE /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				AD13C31928F57FCB00E9F0FE /* WebViewViewController.swift */,
+			);
+			path = Webview;
+			sourceTree = "<group>";
+		};
+		AD13C31B28F58E9300E9F0FE /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				AD13C31D28F58ED100E9F0FE /* UrlData.swift */,
+				AD13C31C28F58ED000E9F0FE /* UrlDetails.swift */,
+			);
+			path = Webview;
+			sourceTree = "<group>";
+		};
 		AD162B9228E5B1D0003753EA /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1279,6 +1302,7 @@
 				ADFA536C28E2F30B004E81BF /* Briefing */,
 				ADFA536F28E2F30B004E81BF /* Index */,
 				ADFA537228E2F30B004E81BF /* Event */,
+				AD13C31828F57FAF00E9F0FE /* Webview */,
 			);
 			path = "Home Flow";
 			sourceTree = "<group>";
@@ -1449,6 +1473,7 @@
 		ADFA53A028E2F30C004E81BF /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AD13C31B28F58E9300E9F0FE /* Webview */,
 				ADFA53A128E2F30C004E81BF /* ScoreAnalysis */,
 				ADFA53A928E2F30C004E81BF /* RecentMatch */,
 				ADFA53AC28E2F30C004E81BF /* scoresResponse */,
@@ -2091,6 +2116,7 @@
 				ADFA546528E2F30C004E81BF /* Environment.swift in Sources */,
 				ADFA54B728E2F30C004E81BF /* HomeHalfStandings.swift in Sources */,
 				ADFA545028E2F30C004E81BF /* extensions+AwardsViewController.swift in Sources */,
+				AD13C31E28F58ED100E9F0FE /* UrlDetails.swift in Sources */,
 				ADFA546E28E2F30C004E81BF /* CustomTabBar.swift in Sources */,
 				ADFA54B228E2F30C004E81BF /* AwayStandings.swift in Sources */,
 				ADFA548D28E2F30C004E81BF /* VideoDetail.swift in Sources */,
@@ -2200,6 +2226,7 @@
 				ADFA547C28E2F30C004E81BF /* Data+Extension.swift in Sources */,
 				ADFA54AB28E2F30C004E81BF /* Event.swift in Sources */,
 				ADFA546728E2F30C004E81BF /* WebService.swift in Sources */,
+				AD13C31A28F57FCB00E9F0FE /* WebViewViewController.swift in Sources */,
 				ADFA549F28E2F30C004E81BF /* ScoreItems.swift in Sources */,
 				ADFA542C28E2F30C004E81BF /* MoreCollectionViewCell.swift in Sources */,
 				ADFA547528E2F30C004E81BF /* URL+Extension.swift in Sources */,
@@ -2207,6 +2234,7 @@
 				ADFA545D28E2F30C004E81BF /* BreifingViewModel.swift in Sources */,
 				ADFA547328E2F30C004E81BF /* UIView+Extension.swift in Sources */,
 				ADFA546628E2F30C004E81BF /* BaseUrl.swift in Sources */,
+				AD13C31F28F58ED100E9F0FE /* UrlData.swift in Sources */,
 				ADFA544F28E2F30C004E81BF /* AwardsViewController.swift in Sources */,
 				ADFA545928E2F30C004E81BF /* LeagueViewModel.swift in Sources */,
 				ADFA548F28E2F30C004E81BF /* Meta.swift in Sources */,
@@ -2474,8 +2502,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9C9FU36V4K;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2495,7 +2523,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.corescore.football.live.score;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = CoreScoreDistributionNew;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2508,8 +2536,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9C9FU36V4K;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2529,7 +2557,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.corescore.football.live.score;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = CoreScoreDistributionNew;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

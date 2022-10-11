@@ -450,6 +450,14 @@ class Utility: NSObject {
         }
     }
     
-   
+    class func callURlDetailsAPI(){
+        HomeAPI().getUrlInfo { response in
+            HomeViewController.urlDetails = response
+            HomeViewController.showPopup()
+        } failed: { _ in
+            
+        }
+
+    }
     
 }

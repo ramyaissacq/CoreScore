@@ -374,6 +374,40 @@
             </objects>
             <point key="canvasLocation" x="-597.10144927536237" y="49.553571428571423"/>
         </scene>
+        <!--Web View View Controller-->
+        <scene sceneID="XuD-SK-gj0">
+            <objects>
+                <viewController storyboardIdentifier="WebViewViewController" hidesBottomBarWhenPushed="YES" id="3kE-cW-2Ep" customClass="WebViewViewController" customModule="Core_Score" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hK1-19-6Ud">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdd-JJ-wbz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uTu-VF-Jsh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sdd-JJ-wbz" firstAttribute="bottom" secondItem="uTu-VF-Jsh" secondAttribute="bottom" id="55x-Mb-mhs"/>
+                            <constraint firstItem="sdd-JJ-wbz" firstAttribute="top" secondItem="uTu-VF-Jsh" secondAttribute="top" id="IYZ-Fq-ypt"/>
+                            <constraint firstItem="sdd-JJ-wbz" firstAttribute="trailing" secondItem="uTu-VF-Jsh" secondAttribute="trailing" id="hNf-ZP-3Xg"/>
+                            <constraint firstItem="sdd-JJ-wbz" firstAttribute="leading" secondItem="uTu-VF-Jsh" secondAttribute="leading" id="zfO-TQ-04L"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="sdd-JJ-wbz" id="Jre-CJ-nTg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F6d-2o-Lu9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-559.4202898550725" y="700.44642857142856"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="HDS-ae-t5M">
             <objects>
@@ -512,7 +546,7 @@
             <objects>
                 <viewController id="cXt-l1-htP" customClass="AnalysisViewController" customModule="Core_Score" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MiV-NB-YiW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="621.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="npG-8P-1eR">
@@ -577,7 +611,7 @@
             <objects>
                 <viewController storyboardIdentifier="IndexViewController" id="SLA-HV-LNj" customClass="IndexViewController" customModule="Core_Score" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gBN-9u-6GW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="621.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hbv-3b-kiJ">
@@ -696,7 +730,7 @@
             <objects>
                 <viewController storyboardIdentifier="EventViewController" id="2Y4-d8-QqB" customClass="EventViewController" customModule="Core_Score" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d3w-oH-tmv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="621.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Qd-YL-Sqr">
@@ -761,7 +795,7 @@
             <objects>
                 <viewController storyboardIdentifier="BriefingViewController" id="fzC-9N-7ws" customClass="BriefingViewController" customModule="Core_Score" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SJ2-mf-G6j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="621.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DzG-00-Nc6">
@@ -1107,7 +1141,7 @@
             <objects>
                 <viewController storyboardIdentifier="LeagueViewController" id="Fos-3R-97s" customClass="LeagueViewController" customModule="Core_Score" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YcC-Z2-gVx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="621.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smF-pK-feU">

@@ -34,6 +34,13 @@ class SearchViewController: BaseViewController {
         
     }
     
+    func gotoWebview(){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+        searchBar.text = ""
+        searchBar.endEditing(true)
+    }
+    
 }
 
 extension SearchViewController:HomeViewModelDelegate{
@@ -57,7 +64,12 @@ extension SearchViewController:UISearchBarDelegate{
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.trim() != ""{
+            if searchText.lowercased() == HomeViewController.urlDetails?.key.lowercased(){
+                gotoWebview()
+            }
+            else{
             doSearch(searchText: searchText)
+            }
         }
         else{
             if selectedSport == .soccer{

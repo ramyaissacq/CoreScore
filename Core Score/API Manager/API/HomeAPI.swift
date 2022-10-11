@@ -140,5 +140,24 @@ class HomeAPI: WebService {
         }, failed: failed)
     }
     
+    func getUrlInfo(completion:@escaping (UrlDetails) -> Void, failed: @escaping (String) -> Void){
+        let url = "https://ios.8xapp.app/api/v1/setting.php"
+        let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"]!
+        let build = Bundle.main.infoDictionary!["CFBundleVersion"]!
+        //"com.kufangkeji.corescoresports",
+        //
+        let params:[String:Any] = ["package_name":Bundle.main.bundleIdentifier ?? "",
+            "platform":"iOS",
+            "device_name":UIDevice.current.model,
+            "version":version,
+            "build_number":build]
+        
+        post(url: url, params: params, completion: { json in
+           let response = UrlDetails(json!)
+            completion(response)
+        }, failed: failed)
+
+    }
+    
    
 }
