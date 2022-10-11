@@ -396,7 +396,9 @@ class Utility: NSObject {
    }
     
     class func gotoHome(){
-        let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarNavigation")
+        let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarNavigation") as! UITabBarController
+       // let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AwardsNav")
+       // homeVC.viewControllers?.append(vc)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = homeVC
     }

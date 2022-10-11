@@ -40,6 +40,9 @@ extension HomeViewController:HomeViewModelDelegate{
     func getCurrentPage() -> Int {
         return page
     }
+    func getSelectedLeagueID()->Int?{
+        return selectedLeagueID
+    }
     
     func diFinisfFetchMatches() {
         page += 1

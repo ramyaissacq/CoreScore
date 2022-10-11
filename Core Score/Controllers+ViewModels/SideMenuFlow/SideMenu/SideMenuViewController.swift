@@ -62,7 +62,7 @@ extension SideMenuViewController:UITableViewDelegate,UITableViewDataSource{
             
             Utility.openUrl(url: URL(string: "https://corescorelive.blogspot.com/2022/10/privacy-policy-app-store.html")!)
         case 2:
-            Utility.shareAction(text: "Install Core Score from apple appstore", url: nil, image: UIImage(named: "launch"), vc: self.parent!)
+            Utility.shareAction(text: "Install Core Score from apple appstore", url: NSURL(string: "https://apps.apple.com/us/app/core-score/id6443674144"), image: UIImage(named: "launch"), vc: self.parent!)
             
         case 3:
             sendEmail()

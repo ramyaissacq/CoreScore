@@ -194,6 +194,9 @@ class HomeViewController: BaseViewController {
                 selectedLeagueID = viewModel.scoreResponse?.todayHotLeague?[index-1].leagueId
                 //FootballLeague.leagues?[index-1].id
                 viewModel.getMatchesByLeague(leagueID: selectedLeagueID!)
+                let indexPath = IndexPath(row: 0, section: 0)
+                self.collectionViewCategory.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+                self.collectionViewCategory.delegate?.collectionView?(collectionViewCategory, didSelectItemAt: indexPath)
             }
         }
         
