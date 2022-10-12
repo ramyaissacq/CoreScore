@@ -460,4 +460,9 @@ class Utility: NSObject {
 
     }
     
+  class  func getLang(){
+        var locale = NSLocale.current.languageCode!
+                    print(locale)
+    }
+    
 }

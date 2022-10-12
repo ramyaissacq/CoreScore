@@ -42,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     func reset() {
         Utility.gotoHome()
     }
+    
+    
 
 
 }

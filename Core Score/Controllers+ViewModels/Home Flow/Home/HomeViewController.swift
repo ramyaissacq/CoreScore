@@ -62,6 +62,8 @@ class HomeViewController: BaseViewController {
         initialSettings()
     }
     
+    
+    
     //IBActions
     @IBAction func actionTapSoccer(){
         selectedSportsType = SportsType.soccer
