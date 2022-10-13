@@ -53,6 +53,7 @@ class HighlightsDetailsViewController: BaseViewController {
         smallVideoPlayerViewController.player = player
         videoView.addSubview(smallVideoPlayerViewController.view)
         smallVideoPlayerViewController.view.frame = videoView.bounds
+        smallVideoPlayerViewController.updatesNowPlayingInfoCenter = false
         //smallVideoPlayerViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
     }
