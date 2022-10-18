@@ -23,6 +23,8 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     var callNext:(()->Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
+        btnSkip.setTitle("Skip".localized, for: .normal)
+        fixedNext.text = "Next".localized
         // Initialization code
         
     }

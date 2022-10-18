@@ -44,6 +44,42 @@ extension ScoresTableViewCell{
         return value
     }
     
+    class func getBasketballStatus(state:Int)->String{
+        var value = ""
+        switch state{
+        case 0:
+            value = "SOON".localized
+        case 1:
+            value = "Q1"
+        case 2:
+            value = "Q2"
+        case 3:
+            value = "Q3"
+        case 4:
+            value = "Q4"
+        case 5:
+            value = "1OT"
+        case 6:
+            value = "2OT"
+        case 7:
+            value = "3OT"
+        case 50:
+            value = "HT"
+        case -1:
+            value = "FT"
+        case -2:
+            value = "TBD"
+        case -3:
+            value = "INT"
+        case -4:
+            value = "CANCEL".localized
+        case -5:
+            value = "DELAY".localized
+        default:
+            break
+        }
+        return value
+        }
    
     
     class func getMinutesFromTimeInterval(interval: TimeInterval)->Int{
@@ -83,7 +119,7 @@ extension ScoresTableViewCell:UITableViewDelegate,UITableViewDataSource{
         if indexPath.row == 0{
         cell.values = quarters
         }
-        else if indexPath.row == 2{
+        else if indexPath.row == 1{
             cell.values = homeScores
         }
         else{

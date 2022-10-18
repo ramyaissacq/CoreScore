@@ -108,10 +108,15 @@ class ScoresView: UIView {
     }
     
     func configureView(obj:MatchList?){
+        let frequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
         tableViewQuarters.isHidden = true
         cornerStack.isHidden = false
         cornerView.isHidden = false
         viewEvent.isHidden = false
+        viewIndex.isHidden = false
+        viewBriefing.isHidden = false
+        viewAnalysis.isHidden = false
+        viewLeague.isHidden = false
         lblName.text = obj?.leagueName
         lblHomeName.text = obj?.homeName
         lblAwayName.text = obj?.awayName
@@ -186,16 +191,23 @@ class ScoresView: UIView {
             
         }
         
-        
+        if frequency == 0{
+            viewIndex.isHidden = true
+            viewLeague.isHidden = true
+        }
        
     }
     
     
     func configureView(obj:BasketballMatchList?){
+        let frequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
         cornerStack.isHidden = true
         cornerView.isHidden = true
         viewEvent.isHidden = true
         viewIndex.isHidden = false
+        viewBriefing.isHidden = false
+        viewAnalysis.isHidden = false
+        viewLeague.isHidden = false
         odds1Stack.isHidden = false
         odds2Stack.isHidden = false
         indexViewYellow.isHidden = false
@@ -237,9 +249,12 @@ class ScoresView: UIView {
         }
         let date = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
         lblDate.text = Utility.formatDate(date: date, with: .eddmmm)
-        
-        let matchDate = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
-        lblTime.text = Utility.formatDate(date: matchDate, with: .hhmm2)
+        let mins = ScoresTableViewCell.timeInMins(startDate: obj?.matchTime ?? "")
+        lblTime.text = "\(ScoresTableViewCell.getBasketballStatus(state: obj?.matchState ?? 0)) \(mins)'"
+        if obj?.matchState == 0{
+            let matchDate = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
+            lblTime.text = Utility.formatDate(date: matchDate, with: .hhmm2)
+        }
         
             lblHandicap1.text = String(obj?.odds?.moneyLineAverage?.liveHomeWinRate ?? 0)
         
@@ -293,7 +308,10 @@ class ScoresView: UIView {
         awayScores = ["Away".localized,obj?.away1 ?? "",obj?.away2 ?? "",obj?.away3 ?? "",obj?.away4 ?? "",obj?.awayScore ?? ""]
         tableViewQuarters.reloadData()
         tableViewQuarters.isHidden = false
-        
+        if frequency == 0{
+            viewIndex.isHidden = true
+            viewLeague.isHidden = true
+        }
       
     }
     
@@ -340,7 +358,7 @@ extension ScoresView:UITableViewDelegate,UITableViewDataSource{
         if indexPath.row == 0{
         cell.values = quarters
         }
-        else if indexPath.row == 2{
+        else if indexPath.row == 1{
             cell.values = homeScores
         }
         else{

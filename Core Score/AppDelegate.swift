@@ -17,10 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        Utility.callURlDetailsAPI()
+       
         IQKeyboardManager.shared.enable = true
         MOLH.shared.activate(true)
         MOLHLanguage.setDefaultLanguage("en")
+        if getPhoneLanguage() == "zh"{
+            MOLHLanguage.setAppleLAnguageTo("zh-Hans")
+        }
+        Utility.callURlDetailsAPI()
         UNUserNotificationCenter.current().delegate = self
         prepareSendNotifications()
         application.registerForRemoteNotifications()
@@ -31,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
         else{
             AppPreferences.setIsFirstRun(value: true)
         }
+        
         
         return true
     }
@@ -43,7 +48,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
         Utility.gotoHome()
     }
     
-    
+    func getPhoneLanguage() -> String{
+        var locale = NSLocale.current.languageCode!
+        let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String ?? ""
+        if countryCode == "CN"{
+            locale = "zh"
+        }
+        return locale
+                
+    }
 
 
 }

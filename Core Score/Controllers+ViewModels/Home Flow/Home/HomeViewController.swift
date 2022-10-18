@@ -210,10 +210,18 @@ class HomeViewController: BaseViewController {
         lblTime.text = "Today".localized
         lblHeader.text = "Today".localized
         if selectedSportsType == .soccer{
+            let frequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
+            if frequency > 0{
             var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
             arr.insert("All Leagues".localized, at: 0)
             self.leagueDropDown?.dataSource = arr
             lblLeague.text = arr.first
+            
+            }
+            else{
+                leagueDropDown?.dataSource = ["All Leagues".localized]
+                lblLeague.text = "All Leagues".localized
+            }
             page = 1
             viewModel.getMatchesList(page: page)
         }
@@ -241,10 +249,18 @@ class HomeViewController: BaseViewController {
                 viewModel.categories = viewModel.todayCategories
                 collectionViewCategory.reloadData()
                 if selectedSportsType == .soccer{
+                    let frequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
+                    if frequency > 0{
                     var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
                     arr.insert("All Leagues".localized, at: 0)
                     self.leagueDropDown?.dataSource = arr
                     lblLeague.text = arr.first
+                    
+                    }
+                    else{
+                        leagueDropDown?.dataSource = ["All Leagues".localized]
+                        lblLeague.text = "All Leagues".localized
+                    }
                     page = 1
                     viewModel.getMatchesList(page: page)
                 }
