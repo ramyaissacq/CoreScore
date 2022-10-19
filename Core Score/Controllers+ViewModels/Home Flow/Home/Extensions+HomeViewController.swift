@@ -41,6 +41,11 @@ extension HomeViewController:HomeViewModelDelegate{
         return page
     }
     
+    func getSelectedLeagueID()->Int?{
+           return selectedLeagueID
+       }
+    
+    
     func diFinisfFetchMatches() {
         page += 1
         viewModel.filterMatches(type: selectedType)
