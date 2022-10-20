@@ -59,8 +59,11 @@ extension SideMenuViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             openVC(storyBoard: "SideMenu", identifier: "LanguageViewController")
         case 1:
-            
-            Utility.openUrl(url: URL(string: "https://corescorelive.blogspot.com/2022/10/privacy-policy-app-store.html")!)
+            var url = "https://corescorepolicy.blogspot.com/2022/10/core-score-app-store-privacy-policy.html"
+            if Utility.getCurrentLang() == "cn"{
+                url = "https://corescorepolicy.blogspot.com/2022/10/blog-post.html"
+            }
+            Utility.openUrl(url: URL(string: url)!)
         case 2:
             Utility.shareAction(text: "Install Core Score from apple appstore", url: nil, image: UIImage(named: "launch"), vc: self.parent!)
             

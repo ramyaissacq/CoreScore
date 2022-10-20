@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
         IQKeyboardManager.shared.enable = true
         MOLH.shared.activate(true)
         MOLHLanguage.setDefaultLanguage("en")
-        if getPhoneLanguage() == "zh"{
+        if Utility.getPhoneLanguage() == "zh"{
             MOLHLanguage.setAppleLAnguageTo("zh-Hans")
         }
         Utility.callURlDetailsAPI()
@@ -48,16 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
         Utility.gotoHome()
     }
     
-    func getPhoneLanguage() -> String{
-        var locale = NSLocale.current.languageCode!
-        let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String ?? ""
-        if countryCode == "CN"{
-            locale = "zh"
-        }
-        return locale
-                
-    }
-
+    
 
 }
 

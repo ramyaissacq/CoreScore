@@ -77,7 +77,10 @@ extension OnboardingViewController:UICollectionViewDelegate,UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCollectionViewCell", for: indexPath) as! OnboardingCollectionViewCell
-        let img = UIImage(named: "onboarding\(indexPath.row+1)")!
+        var img = UIImage(named: "onboarding\(indexPath.row+1)")!
+        if indexPath.row == 0 && Utility.getCurrentLang() == "cn"{
+          img = UIImage(named: "onboarding1CN")!
+        }
         cell.pageControl.numberOfPages = titles.count
         cell.configureCell(title: titles[indexPath.row], description: descriptions[indexPath.row], image: img, index: indexPath.row)
         cell.callNext = {

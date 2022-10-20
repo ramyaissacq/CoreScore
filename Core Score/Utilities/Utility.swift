@@ -460,9 +460,15 @@ class Utility: NSObject {
 
     }
     
-  class  func getLang(){
+   class func getPhoneLanguage() -> String{
         var locale = NSLocale.current.languageCode!
-                    print(locale)
+        let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String ?? ""
+        if countryCode == "CN"{
+            locale = "zh"
+        }
+        return locale
+                
     }
+
     
 }

@@ -123,11 +123,22 @@ class ScoresView: UIView {
         lblScore.text = "\(obj?.homeScore ?? 0 ) : \(obj?.awayScore ?? 0)"
         //let timeDifference = Date() - Utility.getSystemTimeZoneTime(dateString: obj?.startTime ?? "")
         let mins = ScoresTableViewCell.timeInMins(startDate: obj?.startTime ?? "")
+        let date = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
         //ScoresTableViewCell.getMinutesFromTimeInterval(interval: timeDifference)
+        if obj?.state == -1{
+            lblDate.text = ScoresTableViewCell.getStatus(state: obj?.state ?? 0)
+        }
+        else{
+            if mins > 0{
         lblDate.text = "\(ScoresTableViewCell.getStatus(state: obj?.state ?? 0)) \(mins)'"
+            }
+            else{
+                lblDate.text = Utility.formatDate(date: date, with: .eddmmm)
+            }
+        }
         if obj?.state == 0{
             lblScore.text = "SOON".localized
-            let date = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
+            
             lblDate.text = Utility.formatDate(date: date, with: .eddmmm)
         }
         let matchDate = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
@@ -250,7 +261,12 @@ class ScoresView: UIView {
         let date = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
         lblDate.text = Utility.formatDate(date: date, with: .eddmmm)
         let mins = ScoresTableViewCell.timeInMins(startDate: obj?.matchTime ?? "")
+        if obj?.matchState == -1{
+            lblTime.text = ScoresTableViewCell.getBasketballStatus(state: obj?.matchState ?? 0)
+        }
+        else{
         lblTime.text = "\(ScoresTableViewCell.getBasketballStatus(state: obj?.matchState ?? 0)) \(mins)'"
+        }
         if obj?.matchState == 0{
             let matchDate = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
             lblTime.text = Utility.formatDate(date: matchDate, with: .hhmm2)
