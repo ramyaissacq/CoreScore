@@ -60,6 +60,7 @@ class ScoresTableViewCell: UITableViewCell {
     @IBOutlet weak var fixedLeague: UILabel!
     @IBOutlet weak var fixedBriefing: UILabel!
     
+    @IBOutlet weak var fixedIndex2: UILabel!
     
     //MARK: - Variables
     var callIndexSelection:(()->Void)?
@@ -109,6 +110,7 @@ class ScoresTableViewCell: UITableViewCell {
     
     func setupLocalisation(){
         fixedIndex.text = "Index".localized
+        fixedIndex2.text = "Index".localized
         fixedAnalysis.text = "Analysis".localized
         fixedLeague.text = "League".localized
         fixedEvent.text = "Event".localized

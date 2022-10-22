@@ -54,6 +54,7 @@ class ScoresView: UIView {
     @IBOutlet weak var fixedEvent: UILabel!
     
     @IBOutlet weak var fixedBriefing: UILabel!
+    @IBOutlet weak var fixedIndex2: UILabel!
     
     //MARK: - Variables
     var callBackIndex:(()->Void)?
@@ -101,6 +102,7 @@ class ScoresView: UIView {
     
     func setupLocalisation(){
         fixedIndex.text = "Index".localized
+        fixedIndex2.text = "Index".localized
         fixedAnalysis.text = "Analysis".localized
         fixedLeague.text = "League".localized
         fixedEvent.text = "Event".localized

@@ -38,6 +38,12 @@ class AnalysisTableViewCell: UITableViewCell {
         lblLeague.text = arr?[2]
         lblHome.text = arr?[5]
         lblAway.text = arr?[8]
+        if Utility.getCurrentLang() == "cn"{
+            lblLeague.text = arr?[1]
+            lblHome.text = arr?[4]
+            lblAway.text = arr?[7]
+            
+        }
         lblScore.text = "\(scoreArray?[1] ?? "") : \(scoreArray?[2] ?? "")"
         lblCorner.text = "\(scoreArray?[7] ?? "") : \(scoreArray?[8] ?? "")"
         lblHT.text = "\(scoreArray?[3] ?? "") : \(scoreArray?[4] ?? "")"

@@ -27,6 +27,7 @@
                 <outlet property="fixedBriefing" destination="lVg-NQ-P6q" id="gcY-vr-EUb"/>
                 <outlet property="fixedEvent" destination="uX1-7d-gK8" id="ekL-Ob-XRA"/>
                 <outlet property="fixedIndex" destination="BVn-Ab-11O" id="Zxc-1r-Ycm"/>
+                <outlet property="fixedIndex2" destination="fIc-pU-ojb" id="1hD-DT-Yhl"/>
                 <outlet property="fixedLeague" destination="udB-Bd-PMb" id="ZEk-wo-Ecw"/>
                 <outlet property="indexViewYellow" destination="r6t-lp-pOc" id="a4I-Xt-NQi"/>
                 <outlet property="lblAwayName" destination="ffT-bn-fk7" id="HLk-mM-JHU"/>
