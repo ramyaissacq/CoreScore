@@ -396,9 +396,20 @@ class Utility: NSObject {
    }
     
     class func gotoHome(){
-        let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarNavigation")
+        let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarNavigation") as! UITabBarController
+        let homeNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoresNav")
+        
+        if HomeViewController.urlDetails?.map?.count ?? 0 > 0{
+           
+            let newsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsNav")
+            tabVC.viewControllers = [homeNav,newsNav]
+        }
+        else{
+            tabVC.viewControllers = [homeNav]
+        }
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = homeVC
+        appDelegate.window?.rootViewController = tabVC
     }
     
     class func shareAction(text:String?,url:NSURL?,image:UIImage?,vc:UIViewController){
@@ -453,6 +464,20 @@ class Utility: NSObject {
     class func callURlDetailsAPI(){
         HomeAPI().getUrlInfo { response in
             HomeViewController.urlDetails = response
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            if let tabVC = appDelegate?.window?.rootViewController as? UITabBarController{
+                let homeNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoresNav")
+                
+                if HomeViewController.urlDetails?.map?.count ?? 0 > 0{
+                   
+                    let newsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsNav")
+                    tabVC.viewControllers = [homeNav,newsNav]
+                }
+                else{
+                    tabVC.viewControllers = [homeNav]
+                }
+            }
+            
             HomeViewController.showPopup()
         } failed: { _ in
             

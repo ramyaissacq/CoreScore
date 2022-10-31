@@ -41,7 +41,7 @@ class BaseViewController: UIViewController {
     }
     
     func setTitle(){
-        self.navigationItem.title = "CORE SCORE"
+        self.navigationItem.title = "CORE SCORE".localized
     }
     
    

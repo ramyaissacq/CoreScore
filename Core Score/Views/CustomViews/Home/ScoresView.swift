@@ -110,7 +110,7 @@ class ScoresView: UIView {
     }
     
     func configureView(obj:MatchList?){
-        let frequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
+        let mapCnt = HomeViewController.urlDetails?.map?.count ?? 0
         tableViewQuarters.isHidden = true
         cornerStack.isHidden = false
         cornerView.isHidden = false
@@ -204,7 +204,7 @@ class ScoresView: UIView {
             
         }
         
-        if frequency == 0{
+        if mapCnt == 0{
             viewIndex.isHidden = true
             viewLeague.isHidden = true
         }
@@ -213,7 +213,7 @@ class ScoresView: UIView {
     
     
     func configureView(obj:BasketballMatchList?){
-        let frequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
+        let mapCnt = HomeViewController.urlDetails?.map?.count ?? 0
         cornerStack.isHidden = true
         cornerView.isHidden = true
         viewEvent.isHidden = true
@@ -326,7 +326,7 @@ class ScoresView: UIView {
         awayScores = ["Away".localized,obj?.away1 ?? "",obj?.away2 ?? "",obj?.away3 ?? "",obj?.away4 ?? "",obj?.awayScore ?? ""]
         tableViewQuarters.reloadData()
         tableViewQuarters.isHidden = false
-        if frequency == 0{
+        if mapCnt == 0{
             viewIndex.isHidden = true
             viewLeague.isHidden = true
         }

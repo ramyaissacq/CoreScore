@@ -33,11 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
             
         }
        
-        
-        
-        
-        
-        
         return true
     }
 

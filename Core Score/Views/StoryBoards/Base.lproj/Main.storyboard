@@ -122,7 +122,7 @@
         <!--Scores-->
         <scene sceneID="6Mo-9u-Rmz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3TE-sh-4h3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ScoresNav" automaticallyAdjustsScrollViewInsets="NO" id="3TE-sh-4h3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Scores" image="home" selectedImage="SelectedHome" id="bL6-1i-jR1">
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
@@ -190,7 +190,7 @@
         <!--News-->
         <scene sceneID="7JZ-06-L2W">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mK9-YS-o4H" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewsNav" automaticallyAdjustsScrollViewInsets="NO" id="mK9-YS-o4H" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="news" selectedImage="SelectedNews" id="x4H-k1-kfn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="R7a-Px-GGi">
