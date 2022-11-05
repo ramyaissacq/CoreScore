@@ -21,6 +21,7 @@
 		AD162BA828E5D79A003753EA /* PagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD162BA728E5D79A003753EA /* PagesViewController.swift */; };
 		AD1BC39B28E326F60040FE25 /* prize.json in Resources */ = {isa = PBXBuildFile; fileRef = AD1BC39A28E326F60040FE25 /* prize.json */; };
 		AD3F2FA128EB0BF2007E3253 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3F2FA328EB0BF2007E3253 /* Localizable.strings */; };
+		AD54549529112BAA003D9E3F /* Extension2+HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD54549429112BAA003D9E3F /* Extension2+HomeVC.swift */; };
 		AD64377228EAED01002DC7D9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD64377428EAED01002DC7D9 /* Home.storyboard */; };
 		AD64377B28EAEE76002DC7D9 /* Awards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD64377D28EAEE76002DC7D9 /* Awards.storyboard */; };
 		AD64378428EAEF68002DC7D9 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD64378628EAEF68002DC7D9 /* News.storyboard */; };
@@ -296,6 +297,7 @@
 		AD3F2FA428EB0BF8007E3253 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AD3F2FA528EB0BFC007E3253 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD3F2FA628EB0BFE007E3253 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD54549429112BAA003D9E3F /* Extension2+HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension2+HomeVC.swift"; sourceTree = "<group>"; };
 		AD64376A28EAC7E9002DC7D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		AD64376B28EAC7E9002DC7D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		AD64376D28EAC828002DC7D9 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Main.strings; sourceTree = "<group>"; };
@@ -1317,6 +1319,7 @@
 				ADFA535E28E2F30B004E81BF /* Extensions+HomeViewController.swift */,
 				ADFA535F28E2F30B004E81BF /* HomeViewModel.swift */,
 				ADFA536028E2F30B004E81BF /* HomeViewController.swift */,
+				AD54549429112BAA003D9E3F /* Extension2+HomeVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2099,6 +2102,7 @@
 				ADFA541F28E2F30C004E81BF /* LeagueTableViewCell.swift in Sources */,
 				ADFA54C628E2F30C004E81BF /* League.swift in Sources */,
 				ADFA54BF28E2F30C004E81BF /* NewsDetails.swift in Sources */,
+				AD54549529112BAA003D9E3F /* Extension2+HomeVC.swift in Sources */,
 				ADFA544B28E2F30C004E81BF /* NewsViewModel.swift in Sources */,
 				ADFA544C28E2F30C004E81BF /* HighlightsDetailsViewController.swift in Sources */,
 				ADFA548E28E2F30C004E81BF /* Odds.swift in Sources */,
@@ -2534,7 +2538,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.14;
+				MARKETING_VERSION = 1.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.corescore.football.live.score;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = CoreScoreDistributionNew;
@@ -2568,7 +2572,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.14;
+				MARKETING_VERSION = 1.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.corescore.football.live.score;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = CoreScoreDistributionNew;

@@ -55,8 +55,9 @@ class HomeViewController: BaseViewController {
     var timerPinsAlert = Timer()
     var timerHighlightsRefresh = Timer()
     var isHighlights = false
-    static var urlDetails:UrlDetails?
     
+    static var urlDetails:UrlDetails?
+    let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.width - 100), height: 30))
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
@@ -354,10 +355,10 @@ class HomeViewController: BaseViewController {
         let leftBtn = getButton(image: UIImage(named: "menu")!)
         leftBtn.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
-        
-        let rightBtn = getButton(image: UIImage(named: "search")!)
-        rightBtn.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+        searchBar.searchTextField.backgroundColor = UIColor(hex: "#FFE7E2")
+        searchBar.placeholder = "Search".localized
+        searchBar.delegate = self
+        self.navigationItem.titleView = searchBar
     }
     
     @objc func menuTapped(){

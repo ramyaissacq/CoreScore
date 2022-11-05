@@ -18,6 +18,7 @@ protocol HomeViewModelDelegate{
     func didFinishFetchBasketballScoreDetails()
     func getSelectedLeagueID()->Int?
     
+    
 }
 
  extension HomeViewModelDelegate{
@@ -30,12 +31,14 @@ protocol HomeViewModelDelegate{
      func didFinishFetchMatchDetails(){}
      func getSelectedLeagueID()->Int?{return nil}
      
+     
 }
 
 class HomeVieModel{
     var delegate:HomeViewModelDelegate?
     var matches:[MatchList]?
     var originals:[MatchList]?
+    var searchOriginals:[MatchList]?
     var pageData:Meta?
     var scoreResponse:ScoresResponse?
     var pastDates = getRecentDates(isPast: true, limit: 10)
@@ -47,6 +50,7 @@ class HomeVieModel{
     //basketball models
     var basketballMatches:[BasketballMatchList]?
     var originaBasketballMatches:[BasketballMatchList]?
+    var searchOriginaBasketballMatches:[BasketballMatchList]?
     
     
     func getMatchesList(page:Int){
@@ -64,6 +68,7 @@ class HomeVieModel{
                 self.originals?.removeAll()
                 self.originals = response.matchList
             }
+            self.searchOriginals = self.originals
             self.pageData = response.meta
             self.delegate?.diFinisfFetchMatches()
             print("count::\(self.matches?.count ?? 0)")
@@ -83,6 +88,7 @@ class HomeVieModel{
         HomeAPI().getScoresPastFuture(date: date) { response in
             self.matches = response.matchList?.map{MatchList(obj: $0)}
             self.originals = self.matches
+            self.searchOriginals = self.originals
             self.delegate?.didFinishFetchRecentMatches()
         } failed: { msg in
             Utility.showErrorSnackView(message: msg)
@@ -111,6 +117,7 @@ class HomeVieModel{
     func getBasketballScores(){
         HomeAPI().getBasketballScores { response in
             self.originaBasketballMatches = response.matchList
+            self.searchOriginaBasketballMatches = self.originaBasketballMatches
             self.delegate?.didFinishFetchBasketballScores()
             
         } failed: { msg in
@@ -144,6 +151,7 @@ class HomeVieModel{
         let date = Utility.formatDate(date: dt, with: .yyyyMMdd)
         HomeAPI().getBasketballScoresPastFuture(date: date) { response in
             self.originaBasketballMatches = response.matchList
+            self.searchOriginaBasketballMatches = self.originaBasketballMatches
             self.basketballMatches = response.matchList
             self.delegate?.didFinishFetchBasketballRecentMatches()
         } failed: { msg in
@@ -184,6 +192,7 @@ extension HomeVieModel{
         self.originals?.removeAll()
         self.matches?.removeAll()
         self.originals = scoreResponse?.todayHotLeagueList?.filter{$0.leagueId == leagueID}
+        self.searchOriginals = self.originals
         self.matches = self.originals
         delegate?.didFinishFilterByLeague()
     }
@@ -227,7 +236,7 @@ extension HomeVieModel{
         default:
             break
         }
-        
+        self.searchOriginals = matches
     }
     
     func filterBasketballMatches(type:Int){
@@ -245,6 +254,7 @@ extension HomeVieModel{
         default:
             break
         }
+        self.searchOriginaBasketballMatches = self.basketballMatches
         
     }
     
